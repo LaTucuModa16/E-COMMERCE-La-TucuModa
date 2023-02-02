@@ -92,7 +92,7 @@ const jsonProducts = [
         "categories": "Remera",
         "brand": "Mistral",
         "size": ["S", "M", "L"],
-        "colour": ["rosado"],
+        "colour": ["Rosado"],
         "fabric": ["Algodón"],
     },
     {
@@ -632,7 +632,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Vinson",
         "size": ["L", "M"],
-        "color": ["Gris"],
+        "colour": ["Gris"],
         "fabric": ["Gabardina"],
     },
     {
@@ -644,7 +644,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Vinson",
         "size": ["L", "M"],
-        "color": ["Azul"],
+        "colour": ["Azul"],
         "fabric": ["Jean"],
     },
     {
@@ -656,7 +656,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Trooper",
         "size": ["L", "M", "S"],
-        "color": ["Negro"],
+        "colour": ["Negro"],
         "fabric": ["Algodón", "Polyester"],
     },
     {
@@ -668,7 +668,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Equus",
         "size": ["M"],
-        "color": ["Negro"],
+        "colour": ["Negro"],
         "fabric": ["Polyester"],
     },
     {
@@ -680,7 +680,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Vinson",
         "size": ["L", "M"],
-        "color": ["Gris"],
+        "colour": ["Gris"],
         "fabric": ["Gabardina"],
     },
     {
@@ -692,7 +692,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Vinson",
         "size": ["L", "S"],
-        "color": ["Negro"],
+        "colour": ["Negro"],
         "fabric": ["Jean"],
     },
     {
@@ -704,7 +704,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Equus",
         "size": ["S", "M"],
-        "color": ["Azul"],
+        "colour": ["Azul"],
         "fabric": ["Polyester"],
     },
     {
@@ -716,7 +716,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Trooper",
         "size": ["L", "M"],
-        "color": ["Gris"],
+        "colour": ["Gris"],
         "fabric": ["Algodón", "Polyester"],
     },
     {
@@ -728,7 +728,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Vinson",
         "size": ["L", "M"],
-        "color": ["Azul"],
+        "colour": ["Azul"],
         "fabric": ["Gabardina"],
     },
     {
@@ -740,7 +740,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "El Genovés",
         "size": ["L", "S"],
-        "color": ["Negro"],
+        "colour": ["Negro"],
         "fabric": ["Gabardina"],
     },
     {
@@ -752,7 +752,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Lacoste",
         "size": ["L", "M"],
-        "color": ["Beige"],
+        "colour": ["Beige"],
         "fabric": ["Algodón"],
     },
     {
@@ -764,7 +764,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Tommy Hilfiger",
         "size": ["L", "S"],
-        "color": ["Turquesa"],
+        "colour": ["Turquesa"],
         "fabric": ["Algodón"],
     },
     {
@@ -776,7 +776,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Vinson",
         "size": ["L", "M"],
-        "color": ["Azul"],
+        "colour": ["Azul"],
         "fabric": ["Gabardina"],
     },
     {
@@ -788,7 +788,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Vinson",
         "size": ["L", "M"],
-        "color": ["Negro"],
+        "colour": ["Negro"],
         "fabric": ["Gabardina"],
     },
     {
@@ -800,7 +800,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Vinson",
         "size": ["L", "M"],
-        "color": ["Beige"],
+        "colour": ["Beige"],
         "fabric": ["Gabardina"],
     },
     {
@@ -812,7 +812,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Chelsea Market",
         "size": ["L"],
-        "color": ["Verde"],
+        "colour": ["Verde"],
         "fabric": ["Algodón"],
     },
     {
@@ -824,7 +824,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Mistral",
         "size": ["S", "M"],
-        "color": ["Azul"],
+        "colour": ["Azul"],
         "fabric": ["Algodón"],
     },
     {
@@ -836,7 +836,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Vinson",
         "size": ["L", "S"],
-        "color": ["Azul"],
+        "colour": ["Azul"],
         "fabric": ["Jean"],
     },
     {
@@ -848,7 +848,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Equus",
         "size": ["S", "M"],
-        "color": ["Verde"],
+        "colour": ["Verde"],
         "fabric": ["Polyester"],
     },
     {
@@ -860,7 +860,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Equus",
         "size": ["L", "M"],
-        "color": ["Marrón"],
+        "colour": ["Marrón"],
         "fabric": ["Algodón"],
     },
     {
@@ -872,7 +872,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Equus",
         "size": ["L", "M"],
-        "color": ["Gris"],
+        "colour": ["Gris"],
         "fabric": ["Polyester"],
     },
     {
@@ -884,7 +884,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Penguin",
         "size": ["L", "M"],
-        "color": ["Azul"],
+        "colour": ["Azul"],
         "fabric": ["Algodón"],
     },
     {
@@ -896,7 +896,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Equus",
         "size": ["L", "S"],
-        "color": ["Gris"],
+        "colour": ["Gris"],
         "fabric": ["Polyester"],
     },
     {
@@ -908,7 +908,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Shaffe Co",
         "size": ["L", "M"],
-        "color": ["Camel"],
+        "colour": ["Camel"],
         "fabric": ["Gabardina"],
     },
     {
@@ -920,7 +920,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "El Genovés",
         "size": ["L"],
-        "color": ["Beige"],
+        "colour": ["Beige"],
         "fabric": ["Gabardina"],
     },
     {
@@ -932,7 +932,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "El Genovés",
         "size": ["L", "M"],
-        "color": ["Verde"],
+        "colour": ["Verde"],
         "fabric": ["Gabardina"],
     },
     {
@@ -944,7 +944,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Equus",
         "size": ["L", "M"],
-        "color": ["Bordo"],
+        "colour": ["Bordo"],
         "fabric": ["Algodón"],
     },
     {
@@ -956,7 +956,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Shaffe Co",
         "size": ["L", "M"],
-        "color": ["Negro"],
+        "colour": ["Negro"],
         "fabric": ["Gabardina"],
     },
     {
@@ -968,7 +968,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Equus",
         "size": ["L", "S"],
-        "color": ["Mostaza"],
+        "colour": ["Mostaza"],
         "fabric": ["Algodón"],
     },
     {
@@ -980,7 +980,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "El Genovés",
         "size": ["S", "M"],
-        "color": ["Negro"],
+        "colour": ["Negro"],
         "fabric": ["Gabardina"],
     },
     {
@@ -992,7 +992,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "El Genovés",
         "size": ["L", "M"],
-        "color": ["Gris"],
+        "colour": ["Gris"],
         "fabric": ["Gabardina"],
     },
     {
@@ -1004,7 +1004,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "El Genovés Chino",
         "size": ["L", "M"],
-        "color": ["Gris"],
+        "colour": ["Gris"],
         "fabric": ["Gabardina"],
     },
     {
@@ -1016,7 +1016,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Equus",
         "size": ["L", "M"],
-        "color": ["Rojo"],
+        "colour": ["Rojo"],
         "fabric": ["Polyester"],
     },
     {
@@ -1028,7 +1028,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "El Genovés ",
         "size": ["L", "M"],
-        "color": ["Beige"],
+        "colour": ["Beige"],
         "fabric": ["Gabardina"],
     },
     {
@@ -1040,7 +1040,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Equus",
         "size": ["L", "M"],
-        "color": ["Azul"],
+        "colour": ["Azul"],
         "fabric": ["Algodón"],
     },
     {
@@ -1052,7 +1052,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Chelsea Market",
         "size": ["L", "M"],
-        "color": ["Negro"],
+        "colour": ["Negro"],
         "fabric": ["Gabardina"],
     },
     {
@@ -1064,7 +1064,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Vinson",
         "size": ["L", "M"],
-        "color": ["Marrón"],
+        "colour": ["Marrón"],
         "fabric": ["Gabardina"],
     },
     {
@@ -1076,7 +1076,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Wrangler",
         "size": ["L", "M"],
-        "color": ["Gris"],
+        "colour": ["Gris"],
         "fabric": ["Algodón"],
     },
     {
@@ -1088,7 +1088,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Vinson",
         "size": ["S"],
-        "color": ["Azul"],
+        "colour": ["Azul"],
         "fabric": ["Jean"],
     },
     {
@@ -1100,7 +1100,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Vinson",
         "size": ["L", "M"],
-        "color": ["Beige"],
+        "colour": ["Beige"],
         "fabric": ["Gabardina"],
     },
     {
@@ -1112,7 +1112,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Equus",
         "size": ["L", "M"],
-        "color": ["Beige"],
+        "colour": ["Beige"],
         "fabric": ["Polyester"],
     },
     {
@@ -1124,7 +1124,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Prototype",
         "size": ["L", "M"],
-        "color": ["Bordo"],
+        "colour": ["Bordo"],
         "fabric": ["Gabardina"],
     },
     {
@@ -1136,7 +1136,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Wintertex",
         "size": ["L", "M"],
-        "color": ["Gris"],
+        "colour": ["Gris"],
         "fabric": ["Algodón"],
     },
     {
@@ -1148,7 +1148,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Wintertex",
         "size": ["L", "M"],
-        "color": ["Beige"],
+        "colour": ["Beige"],
         "fabric": ["Polyester"],
     },
     {
@@ -1160,7 +1160,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Vinson",
         "size": ["L", "M"],
-        "color": ["Negro"],
+        "colour": ["Negro"],
         "fabric": ["Gabardina"],
     },
     {
@@ -1172,7 +1172,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Harvey & Willys",
         "size": ["L", "M"],
-        "color": ["Negro"],
+        "colour": ["Negro"],
         "fabric": ["Algodón"],
     },
     {
@@ -1184,7 +1184,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Harvey & Willys",
         "size": ["L", "M"],
-        "color": ["Azul"],
+        "colour": ["Azul"],
         "fabric": ["Algodón"],
     },
     {
@@ -1196,7 +1196,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Harvey & Willys",
         "size": ["L", "M"],
-        "color": ["Negro"],
+        "colour": ["Negro"],
         "fabric": ["Algodón"],
     },
     {
@@ -1208,7 +1208,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Vinson",
         "size": ["L", "M"],
-        "color": ["Verde"],
+        "colour": ["Verde"],
         "fabric": ["Algodón"],
     },
     {
@@ -1220,7 +1220,7 @@ const jsonProducts = [
         "categories": "Pantalon",
         "brand": "Vinson",
         "size": ["L", "M"],
-        "color": ["Rojo"],
+        "colour": ["Rojo"],
         "fabric": ["Algodón"],
     },
 ]
