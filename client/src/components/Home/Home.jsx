@@ -15,8 +15,8 @@ export default function Home() {
   return (
     <div className="containerCards">
       {allProducts.length > 0 ? (
-        allProducts?.map((p) => {
-          return <Card name={p.name} img={p.img} price={p.price} />;
+        allProducts?.map((p, pos) => {
+          return <Card key={pos} name={p.name} img={p.img} price={p.price} />;
         })
       ) : (
         <h5>No se encontraron productos con esas caracteristicas</h5>
