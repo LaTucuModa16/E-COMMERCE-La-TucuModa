@@ -23,19 +23,23 @@ const getProducts = async () => {
                     price: e.price,
                     description: e.description,
                     brand: e.brand,
+                    colour: e.colour,
                     size: e.size,
                     fabric: e.fabric
                 });
+
                 let newProductCategorie = await Categorie.findAll({
-                    where: { name: e.Categorie },
+                    where: { name: e.categories },
                 });
                 newProduct.addCategorie(newProductCategorie);
                 console.log("BD de Producos completada")
+
             })
         } catch (error) {
             console.log("Error Products", error)
         }
     }
+
 
     const result = await products.map(e => {
         return {
@@ -46,9 +50,10 @@ const getProducts = async () => {
             price: e.price,
             description: e.description,
             brand: e.brand,
+            colour: e.colour,
             size: e.size,
             fabric: e.fabric,
-            categorie: e.Categorie.map((e) => e.name)
+            categorie: e.categories
         }
     })
     return (result);
@@ -78,9 +83,10 @@ const getProduct = async (name) => {
                 price: e.price,
                 description: e.description,
                 brand: e.brand,
+                colour: e.colour,
                 size: e.size,
                 fabric: e.fabric,
-                categorie: e.Categorie.map((e) => e.name)
+                categorie: e.categories.map((e) => e.name)
             }
         })
         return (res)

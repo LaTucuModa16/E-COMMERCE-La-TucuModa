@@ -4,21 +4,22 @@ const allCategories = async () => {
 	try {
 		const categoriesDB = await Categorie.findAll();
 
-		!categoriesDB.length ?
+		if (!categoriesDB.length) {
+			const categories = ['Remera', 'Pantalon'];
 
-		const categories = ['Remera', 'Pantalon'];
-
-		categories.forEach( async (e) => {
-			await Categorie.findOrCreate({
-				where: {
-					name: e
-				}
+			categories.forEach(async (e) => {
+				await Categorie.findOrCreate({
+					where: {
+						name: e
+					}
+				});
 			});
-		});
 
-		return categories :
+			return categories;
+		} else {
 
-		return categoriesDB.map(e => e.name);
+			return categoriesDB.map(e => e.name);
+		}
 
 	} catch (error) {
 		console.log(error)

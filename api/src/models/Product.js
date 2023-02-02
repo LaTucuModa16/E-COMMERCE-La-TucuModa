@@ -29,11 +29,14 @@ module.exports = (sequelize) => {
         brand: {
             type: DataTypes.STRING
         },
+        colour: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+        },
         size: {
-            type: DataTypes.STRING
+            type: DataTypes.ARRAY(DataTypes.STRING),
         },
         fabric: {
-            type: DataTypes.STRING
+            type: DataTypes.ARRAY(DataTypes.STRING),
         }
     })
 }
