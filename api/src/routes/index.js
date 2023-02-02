@@ -13,4 +13,3 @@ router.use("/products", deleteProduct);
 
 module.exports = router;
 
-/*s */
