@@ -27,7 +27,7 @@ const getProducts = async () => {
                     fabric: e.fabric
                 });
                 let newProductCategorie = await Categorie.findAll({
-                    where: { name: e.Categorie },
+                    where: { name: e.categories },
                 });
                 newProduct.addCategorie(newProductCategorie);
                 console.log("BD de Producos completada")
