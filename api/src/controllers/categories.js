@@ -16,9 +16,11 @@ const allCategories = async () => {
 			});
 
 			return categories;
+      
 		} else {
 
 			return categoriesDB.map(e => e.name);
+
 		}
 
 	} catch (error) {
