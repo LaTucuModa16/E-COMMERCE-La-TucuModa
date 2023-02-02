@@ -28,3 +28,5 @@ router.get("/:id", async (req, res) => {
         res.status(404).send("Id incorrecto")
     }
 })
+
+module.exports = router;
