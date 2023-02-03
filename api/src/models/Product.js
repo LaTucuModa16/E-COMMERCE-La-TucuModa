@@ -37,6 +37,11 @@ module.exports = (sequelize) => {
         },
         fabric: {
             type: DataTypes.ARRAY(DataTypes.STRING),
-        }
+        },
+        product_hidden: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
+        
     })
 }
