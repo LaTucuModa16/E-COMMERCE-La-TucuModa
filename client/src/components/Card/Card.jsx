@@ -6,7 +6,7 @@ export default function Card({ name, img, price }) {
     <div>
       <h1>{name}</h1>
       <img src={img} alt="imagen del producto" width="170px" height="220px" />
-      <p>{price}</p>
+      <p>$ {price}.-</p>
     </div>
   );
 }
