@@ -41,7 +41,6 @@ export default function Home() {
         <div className="d-flex row justify-content-around">
           {currentProducts.length > 0 ? (
             currentProducts?.map((p, pos) => {
-              console.log(p);
               return (
                 <div className="col-md-6 col-lg-4 d-flex justify-content-center">
                   <Card key={pos} name={p.name} img={p.img} price={p.price} />
