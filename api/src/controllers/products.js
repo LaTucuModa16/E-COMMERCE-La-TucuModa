@@ -32,7 +32,7 @@ const getProducts = async () => {
                     where: { name: e.categories },
                 });
                 newProduct.addCategorie(newProductCategorie);
-                console.log("BD de Producos completada")
+                return console.log("BD de Producos completada")
 
             })
         } catch (error) {
