@@ -8,6 +8,8 @@ const filterByBrand = require('./filters/filterByBrand.js');
 const filterByCategory = require('./filters/filterByCategory.js');
 const filterBySize = require('./filters/filterBySize');
 
+const register = require("./auth.js/register");
+const login = require("./auth.js/login");
 /*--------------------------------------  routes PRODUCTS  --------------------------------------  */
 
 router.use("/products", getProducts);
@@ -18,6 +20,10 @@ router.use('/products/filters', filterByBrand);
 router.use('/products/filters', filterByCategory);
 router.use('/products/filters', filterBySize);
 
+/*--------------------------------------  routes AUTH  --------------------------------------  */
+
+router.use("/register", register);
+router.use("/login", login);
 
 module.exports = router;
 
