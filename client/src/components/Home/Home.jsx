@@ -35,7 +35,7 @@ export default function Home() {
           return <Card key={pos} name={p.name} img={p.img} price={p.price} />;
         })
       ) : (
-        <h5>No se encontraron productos con esas caracteristicas</h5>
+        <h5>No se encontraron productos con esas caracteristicas!</h5>
       )}
     </div>
   );
