@@ -1,9 +1,11 @@
 import React from "react";
 // import "./card.css";
 import { Card, Button } from "react-bootstrap";
+
 import { Link } from "react-router-dom";
 
 export default function Card_({ name, img, price, id }) {
+
   return (
     // <div>
     //   <h1>{name}</h1>
@@ -15,9 +17,11 @@ export default function Card_({ name, img, price, id }) {
       <Card.Body>
         <Card.Title className="text-primary">${price}.-</Card.Title>
         <Card.Text>{name}</Card.Text>
+
         <Link key={id} to={"/detail/" + id}>
           <Button variant="success">Ver detalles</Button>
         </Link>
+
       </Card.Body>
     </Card>
   );

@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 import Navbar from "../NavBar/Navbar";
 import Paginado from "../Paginado/Paginado";
 
+import Form from "react-bootstrap/Form";
+import FormHome from "../FormHome/FormHome";
+
+
 export default function Home() {
   const allProducts = useSelector((state) => state.products);
   const dispatch = useDispatch();
@@ -32,31 +36,34 @@ export default function Home() {
     <div>
       <Navbar />
 
-      <div className="text-center">
-        <Paginado
-          productsPerPage={productsPerPage}
-          allProducts={allProducts.length}
-          settingCurrentPage={settingCurrentPage}
-          currentPage={currentPage}
-        />
-        <div className="d-flex row justify-content-around">
-          {currentProducts.length > 0 ? (
-            currentProducts?.map((p, pos) => {
-              return (
-                <div className="col-md-6 col-lg-4 d-flex justify-content-center">
-                  <Card
-                    key={pos}
-                    id={p.id}
-                    name={p.name}
-                    img={p.img}
-                    price={p.price}
-                  />
-                </div>
-              );
-            })
-          ) : (
-            <h5>No se encontraron productos con esas caracteristicas</h5>
-          )}
+      <div className="d-flex row container mt-5">
+        <FormHome />
+        <div className="text-center col">
+          <Paginado
+            productsPerPage={productsPerPage}
+            allProducts={allProducts.length}
+            settingCurrentPage={settingCurrentPage}
+            currentPage={currentPage}
+          />
+          <div className="d-flex row justify-content-around">
+            {currentProducts.length > 0 ? (
+              currentProducts?.map((p, pos) => {
+                return (
+                  <div className="col-md-6 col-lg-4 d-flex justify-content-center">
+                    <Card key={pos} id={p.id} name={p.name} img={p.img} price={p.price} />
+                  </div>
+                );
+              })
+            ) : (
+              <div>
+                <h5>No se encontraron productos con esas caracteristicas</h5>
+                <h5>No se encontraron productos con esas caracteristicas</h5>
+                <h5>No se encontraron productos con esas caracteristicas</h5>
+                <h5>No se encontraron productos con esas caracteristicas</h5>
+              </div>
+            )}
+          </div>
+
         </div>
       </div>
     </div>

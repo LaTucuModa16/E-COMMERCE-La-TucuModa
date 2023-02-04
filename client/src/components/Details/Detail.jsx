@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar_ from "../NavBar/Navbar";
@@ -48,6 +49,7 @@ function Detail(props) {
       )}
     </div>
   );
+
 }
 
 export default Detail;
