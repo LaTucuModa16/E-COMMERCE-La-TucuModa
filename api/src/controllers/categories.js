@@ -5,7 +5,7 @@ const allCategories = async () => {
 		const categoriesDB = await Categorie.findAll();
 
 		if (!categoriesDB.length) {
-			const categories = ['Remera', 'Pantalon'];
+			const categories = ['Remera', 'Pantalon', 'Buzo'];
 
 			categories.forEach(async (e) => {
 				await Categorie.findOrCreate({

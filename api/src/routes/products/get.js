@@ -4,10 +4,24 @@ const { Product, Categorie } = require("../../db");
 
 router.get("/", async (req, res) => {
   const { name } = req.query;
+
   try {
     if (name) {
-      const product = await getProduct(name);
-      res.send(product);
+      const words = name.split(' ');
+      const products = await getProducts();
+      const result = products.filter(prod => {
+        let validate = true;
+        words.forEach(word => {
+          if (!prod.name.toLowerCase().includes(word.toLowerCase()) && 
+              !prod.brand.toLowerCase().includes(word.toLowerCase()) && 
+              !prod.colour.map(color => color.toLowerCase()).includes(word.toLowerCase()) && 
+              !prod.categorie[0].name.toLowerCase().includes(word.toLowerCase())) {
+            validate = false;
+          }
+        })
+        return validate;
+      })
+      res.send(result);
     } else {
       const all = await getProducts();
       res.send(all);
