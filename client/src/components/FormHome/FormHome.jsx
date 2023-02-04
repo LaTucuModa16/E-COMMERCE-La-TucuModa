@@ -4,7 +4,9 @@ import { Form } from "react-bootstrap";
 
 export default function FormHome({}) {
   return (
-    <div className="col-3">
+    <div>
+      <hr className="mt-5" />
+      <br />
       <div className="form-check">
         <Form.Group>
           <h4 className="">Categoria</h4>

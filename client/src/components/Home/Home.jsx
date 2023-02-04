@@ -5,7 +5,6 @@ import Card from "../Card/Card.jsx";
 import { Link } from "react-router-dom";
 import Navbar from "../NavBar/Navbar";
 import Paginado from "../Paginado/Paginado";
-import Form from "react-bootstrap/Form";
 import FormHome from "../FormHome/FormHome";
 
 export default function Home() {
@@ -13,7 +12,7 @@ export default function Home() {
   const dispatch = useDispatch();
   const [orden, setOrden] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage, setProductsPerPage] = useState(20);
+  const [productsPerPage, setProductsPerPage] = useState(18);
   const indexOfLastProducts = currentPage * productsPerPage;
   const indexOfFirsttProducts = indexOfLastProducts - productsPerPage;
   const currentProducts = allProducts.slice(
@@ -33,9 +32,11 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <div className="d-flex row container mt-5">
-        <FormHome />
-        <div className="text-center col">
+      <div className="d-flex row mt-5">
+        <div className="d-none d-md-block col-1">
+          <FormHome />
+        </div>
+        <div className="text-center col conteiner">
           <Paginado
             productsPerPage={productsPerPage}
             allProducts={allProducts.length}
@@ -54,12 +55,15 @@ export default function Home() {
             ) : (
               <div>
                 <h5>No se encontraron productos con esas caracteristicas</h5>
-                <h5>No se encontraron productos con esas caracteristicas</h5>
-                <h5>No se encontraron productos con esas caracteristicas</h5>
-                <h5>No se encontraron productos con esas caracteristicas</h5>
               </div>
             )}
           </div>
+          <Paginado
+            productsPerPage={productsPerPage}
+            allProducts={allProducts.length}
+            settingCurrentPage={settingCurrentPage}
+            currentPage={currentPage}
+          />
         </div>
       </div>
     </div>
