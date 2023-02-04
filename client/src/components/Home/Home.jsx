@@ -5,7 +5,9 @@ import Card from "../Card/Card.jsx";
 import { Link } from "react-router-dom";
 import Navbar from "../NavBar/Navbar";
 import Paginado from "../Paginado/Paginado";
+
 import FormHome from "../FormHome/FormHome";
+
 
 export default function Home() {
   const allProducts = useSelector((state) => state.products);
@@ -32,11 +34,13 @@ export default function Home() {
   return (
     <div>
       <Navbar />
+
       <div className="d-flex row mt-5">
         <div className="d-none d-md-block col-1">
           <FormHome />
         </div>
         <div className="text-center col conteiner">
+
           <Paginado
             productsPerPage={productsPerPage}
             allProducts={allProducts.length}
@@ -48,7 +52,7 @@ export default function Home() {
               currentProducts?.map((p, pos) => {
                 return (
                   <div className="col-md-6 col-lg-4 d-flex justify-content-center">
-                    <Card key={pos} name={p.name} img={p.img} price={p.price} />
+                    <Card key={pos} id={p.id} name={p.name} img={p.img} price={p.price} />
                   </div>
                 );
               })
@@ -58,12 +62,7 @@ export default function Home() {
               </div>
             )}
           </div>
-          <Paginado
-            productsPerPage={productsPerPage}
-            allProducts={allProducts.length}
-            settingCurrentPage={settingCurrentPage}
-            currentPage={currentPage}
-          />
+
         </div>
       </div>
     </div>
