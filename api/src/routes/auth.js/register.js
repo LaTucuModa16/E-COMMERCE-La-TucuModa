@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { encrypt } = require("./helpers/handleBrcrypt")
 const { User } = require("../../db")
 const CryptoJS = require("crypto-js");
+const { enviarMail } = require("./config/nodemailer")
 
 //REGISTER
 router.post("/", async (req, res) => {
@@ -19,7 +20,7 @@ router.post("/", async (req, res) => {
         })
 
 
-
+        await enviarMail(email)
         res.send({ newUser })
 
     } catch (error) {
