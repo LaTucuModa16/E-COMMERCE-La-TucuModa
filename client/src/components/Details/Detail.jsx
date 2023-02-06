@@ -1,8 +1,9 @@
-
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar_ from "../NavBar/Navbar";
 import axios from "axios";
+import "./Detail.css";
+import { Link } from "react-router-dom";
 
 function Detail(props) {
   const [products, setProducts] = useState(null);
@@ -21,8 +22,11 @@ function Detail(props) {
   return (
     <div>
       <Navbar_ />
+      <Link to="/home">
+        <button>Ir a la página Home</button>
+      </Link>
       {products && products !== "No existe este producto" ? (
-        <div>
+        <div className="detailPokemon2">
           <h1>{products[0].name}</h1>
           <img
             src={products[0].img}
@@ -49,7 +53,6 @@ function Detail(props) {
       )}
     </div>
   );
-
 }
 
 export default Detail;

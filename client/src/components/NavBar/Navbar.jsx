@@ -13,7 +13,7 @@ function OffcanvasExample() {
       {["lg"].map((expand) => (
         <Navbar key={expand} bg="warning" expand={expand} className="mb-3">
           <Container fluid>
-            <Navbar.Brand href="#">La Tucumoda</Navbar.Brand>
+            <Navbar.Brand href="/Home">La Tucumoda</Navbar.Brand>
 
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../SeaarchBar/SearchBar";
-import { getCategories, setFilters } from "../../actions";
+import { getCategories, setFilters, getProducts } from "../../actions";
 import { Form } from "react-bootstrap";
 
 export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
@@ -65,6 +65,13 @@ export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
     }, 500);
   };
 
+  function handleClick(e) {
+    setFlagRefresh_();
+    setCurrentPage(1);
+    e.preventDefault();
+    dispatch(getProducts());
+  }
+
   return (
     <div>
       <div className="d-none d-md-block">
@@ -73,8 +80,18 @@ export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
           setCurrentPage={setCurrentPage}
         />
       </div>
+
       <div>
         <hr className="mt-5" />
+        <button
+          type="button"
+          class="glow-on-hover"
+          onClick={(e) => {
+            handleClick(e);
+          }}
+        >
+          Borrar Filtros
+        </button>
         <br />
         <div className="form-check">
           <h4>Categorias</h4>
