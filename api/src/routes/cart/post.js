@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Product, Cart, productCart } = require('../../db.js');
 
 router.post('/addproductcart', async (req, res) => {
-	const { userId, productId, name, img, price, quantity } = req.body;
+	const { userId, productId, quantity } = req.body;
 	try {
 		const cart = await Cart.findAll();
 		const result = cart.map(e => e.dataValues.productId);
@@ -12,9 +12,6 @@ router.post('/addproductcart', async (req, res) => {
 			const newCart = await Cart.create({
 				userId,
 				productId,
-				name,
-				img,
-				price,
 				quantity: 1
 			});
 			const product = await Product.findOne({
