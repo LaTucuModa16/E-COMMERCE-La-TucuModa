@@ -7,20 +7,24 @@ router.get("/", async (req, res) => {
 
   try {
     if (name) {
-      const words = name.split(' ');
+      const words = name.split(" ");
       const products = await getProducts();
-      const result = products.filter(prod => {
+      const result = products.filter((prod) => {
         let validate = true;
-        words.forEach(word => {
-          if (!prod.name.toLowerCase().includes(word.toLowerCase()) && 
-              !prod.brand.toLowerCase().includes(word.toLowerCase()) && 
-              !prod.colour.map(color => color.toLowerCase()).includes(word.toLowerCase()) && 
-              !prod.categorie[0].name.toLowerCase().includes(word.toLowerCase())) {
+        words.forEach((word) => {
+          if (
+            !prod.name.toLowerCase().includes(word.toLowerCase()) &&
+            !prod.brand.toLowerCase().includes(word.toLowerCase()) &&
+            !prod.colour
+              .map((color) => color.toLowerCase())
+              .includes(word.toLowerCase()) &&
+            !prod.categorie[0]?.name.toLowerCase().includes(word.toLowerCase())
+          ) {
             validate = false;
           }
-        })
+        });
         return validate;
-      })
+      });
       res.send(result);
     } else {
       const all = await getProducts();
