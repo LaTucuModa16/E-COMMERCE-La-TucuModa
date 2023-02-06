@@ -5,19 +5,28 @@ import "./LandingPage.css";
 export default function LandingPage() {
   const navigate = useNavigate();
 
+  const [spinner, setSpiner] = useState(false);
+
   const ingresar = () => {
+    setSpiner(true);
     setTimeout(() => {
       navigate("/home");
-    }, 3000);
+    }, 1000);
   };
 
   return (
-    <div>
-      <h1>
-        <img src="https://topboutique.es/wp-content/uploads/2021/06/como-decorar-una-boutique-peque%C3%B1a-con-poco-dinero.jpg" />
-      </h1>
-
-      <button onClick={ingresar}>Ingresar</button>
+    <div className="LandingPage">
+      {spinner ? (
+        <div className="spinner">
+          <div className="bounce1"></div>
+          <div className="bounce2"></div>
+          <div className="bounce3"></div>
+        </div>
+      ) : (
+        <button className="boton-sec" onClick={ingresar}>
+          <button className="primary-button"> Ingresar</button>
+        </button>
+      )}
     </div>
   );
 }
