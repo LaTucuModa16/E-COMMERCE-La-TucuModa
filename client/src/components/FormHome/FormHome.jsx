@@ -35,7 +35,7 @@ export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
       let brands_ = [];
       let sizes_ = [];
       backupProducts.forEach((prod) => {
-        if (prod.categorie[0].name === filterProducts.categorie) {
+        if (prod.categorie[0]?.name === filterProducts.categorie) {
           if (!brands_.includes(prod.brand)) {
             brands_.push(prod.brand);
           }
