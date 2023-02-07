@@ -31,7 +31,7 @@ export default function Home() {
     setshowForm(false);
     setTimeout(() => {
       setshowForm(true);
-    }, 10);
+    }, 20);
   }, [flagRefresh]);
 
   const settingCurrentPage = (pageNumber) => {
