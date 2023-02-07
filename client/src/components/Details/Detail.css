@@ -1,0 +1,14 @@
+.detailPokemon2 {
+    text-decoration: none;
+    border: 10px;
+    border: solid;
+    text-align: center;
+    width: 500px;
+    /* margin-left: 100px; */
+    margin: 50px 550px;
+    padding: 30px;
+    /* background: rgb(50, 126, 224); */
+    border-radius: 40px 0 40px 0;
+    background-color: #e0eaee;
+    color: #283747;
+}
