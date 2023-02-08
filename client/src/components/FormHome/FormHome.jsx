@@ -74,82 +74,73 @@ export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
 
   return (
     <div>
-      <div className="d-none d-md-block">
-        <SearchBar
-          setFlagRefresh_={setFlagRefresh_}
-          setCurrentPage={setCurrentPage}
-        />
-      </div>
+      {/* <hr className="" /> */}
+      <button
+        type="button"
+        class="glow-on-hover"
+        onClick={(e) => {
+          handleClick(e);
+        }}
+      >
+        Borrar Filtros
+      </button>
+      <br />
+      <div className="form-check">
+        <h4>Categorias</h4>
+        {allCategories ? (
+          <>
+            <Form>
+              {allCategories.map((categorie, pos) => {
+                return (
+                  <div>
+                    <Form.Check
+                      onChange={(e) =>
+                        setCategorie({
+                          atributte: "categorie",
+                          value: categorie,
+                        })
+                      }
+                      inline
+                      label={categorie}
+                      name="categorie"
+                      type="radio"
+                      id={pos}
+                    />
+                  </div>
+                );
+              })}
+            </Form>
 
-      <div>
-        <hr className="mt-5" />
-        <button
-          type="button"
-          class="glow-on-hover"
-          onClick={(e) => {
-            handleClick(e);
-          }}
-        >
-          Borrar Filtros
-        </button>
-        <br />
-        <div className="form-check">
-          <h4>Categorias</h4>
-          {allCategories ? (
-            <>
-              <Form>
-                {allCategories.map((categorie, pos) => {
+            {filterProducts.categorie !== "all" && !hide ? (
+              <>
+                <h4>Marcas</h4>
+                {stock.brands.map((brand, pos) => {
                   return (
                     <div>
                       <Form.Check
                         onChange={(e) =>
-                          setCategorie({
-                            atributte: "categorie",
-                            value: categorie,
-                          })
+                          dispatch(
+                            setFilters({
+                              atributte: "brand",
+                              value: brand,
+                            })
+                          )
                         }
                         inline
-                        label={categorie}
-                        name="categorie"
+                        label={brand}
+                        name="brand"
                         type="radio"
                         id={pos}
                       />
                     </div>
                   );
                 })}
-              </Form>
-
-              {filterProducts.categorie !== "all" && !hide ? (
-                <>
-                  <h4>Marcas</h4>
-                  {stock.brands.map((brand, pos) => {
-                    return (
-                      <div>
-                        <Form.Check
-                          onChange={(e) =>
-                            dispatch(
-                              setFilters({
-                                atributte: "brand",
-                                value: brand,
-                              })
-                            )
-                          }
-                          inline
-                          label={brand}
-                          name="brand"
-                          type="radio"
-                          id={pos}
-                        />
-                      </div>
-                    );
-                  })}
-                </>
-              ) : null}
-            </>
-          ) : (
-            <h1>No hay categorias en este momento</h1>
-          )}
-        </div>
+              </>
+            ) : null}
+          </>
+        ) : (
+          <h1>No hay categorias en este momento</h1>
+        )}
       </div>
     </div>
   );
