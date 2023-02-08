@@ -16,7 +16,7 @@ function CreateForm() {
     stock: "",
     price: "",
     description: "",
-    img: "https://i0.wp.com/www.alphr.com/wp-content/uploads/2016/07/whos_that_pokemon.png?resize=738%2C320&ssl=1",
+    img: "https://i.pinimg.com/474x/6c/f5/be/6cf5be64dd743079b96614981254aef7.jpg",
     brand: "",
     colour: [],
     size: [],
@@ -130,10 +130,10 @@ function CreateForm() {
       setError("Seleccione al menos una talla");
       return false;
     }
-    // if (newProduct.fabric) {
-    //   setError("Seleccione una opción");
-    //   return false;
-    // }
+    if (newProduct.fabric) {
+      setError("Seleccione una opción");
+      return false;
+    }
     if (newProduct.categorie.length < 1) {
       setError("Seleccione una categoría");
       return false;
