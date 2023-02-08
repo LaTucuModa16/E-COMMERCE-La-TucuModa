@@ -37,4 +37,3 @@ router.use('/cart', deleteCart);
 router.use("/mercadopago", mercadopago)
 
 module.exports = router;
-

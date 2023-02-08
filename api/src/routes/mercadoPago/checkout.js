@@ -2,6 +2,9 @@ const router = require("express").Router();
 // SDK de Mercado Pago
 const mercadopago = require("mercadopago");
 
+const { getCart } = require("../../controllers/cart")
+const { User } = require('../../db.js');
+
 
 // Agrega credenciales
 mercadopago.configure({
@@ -9,7 +12,9 @@ mercadopago.configure({
 });
 
 router.post("/", async (req, res) => {
-    const product = req.body;
+
+   const product = req.body
+
     // Crea un objeto de preferencia
     let preference = {
         items: [
