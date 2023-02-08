@@ -39,6 +39,7 @@ Categorie.belongsToMany(Product, { through: "product_categorie" });
 Cart.belongsToMany(Product, { through: "cart_product" });
 Product.belongsToMany(Cart, { through: "cart_product" });
 
+
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize,     // para importart la conexión { conn } = require('./db.js');

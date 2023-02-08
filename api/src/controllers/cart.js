@@ -1,5 +1,4 @@
 const { Cart, Product } = require('../db.js');
-const jsonProducts = require('./JSON/JsonOfProducts.js');
 
 const getCart = async (userId) => {
 	const cart = await Cart.findAll({
