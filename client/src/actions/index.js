@@ -1,8 +1,9 @@
 import axios from "axios";
+import { REACT_APP_URL } from "../../env";
 
 export function getProducts() {
   return async function (dispatch) {
-    let json = await axios.get("http://localhost:3001/products", {});
+    let json = await axios.get(`${REACT_APP_URL}/products`, {});
     return dispatch({
       type: "GET_PRODUCTS",
       payload: json.data,
@@ -12,10 +13,7 @@ export function getProducts() {
 
 export function getProductsByName(name) {
   return async function (dispatch) {
-    let json = await axios.get(
-      `http://localhost:3001/products?name=${name}`,
-      {}
-    );
+    let json = await axios.get(`${REACT_APP_URL}/products?name=${name}`, {});
 
     return dispatch({
       type: "GET_PRODUCTS",
@@ -26,7 +24,7 @@ export function getProductsByName(name) {
 
 export function getCategories() {
   return async function (dispatch) {
-    let json = await axios.get(`http://localhost:3001/categories`, {});
+    let json = await axios.get(`${REACT_APP_URL}/categories`, {});
 
     return dispatch({
       type: "GET_CATEGORIES",
