@@ -10,7 +10,7 @@ import Contact from "./components/Contactos/Contact";
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div>
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
           <Route path="/home" element={<Home />} />
