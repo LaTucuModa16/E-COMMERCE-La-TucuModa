@@ -11,16 +11,8 @@ export default function Register() {
 	const navigate = useNavigate();
 	const {register, formState: { errors }, handleSubmit} = useForm();
 
-	const [input, setInput] = useState({
-		username: '',
-		name: '',
-		last_name: '',
-		email: '',
-		password: ''
-	});
-
-	const onSubmit = (input, e) => {
-		dispatch(registerUser(input));
+	const onSubmit = (data, e) => {
+		dispatch(registerUser(data));
 		alert('Usuario creado exitosamente');
 		e.target.reset();
 		navigate('/home');
