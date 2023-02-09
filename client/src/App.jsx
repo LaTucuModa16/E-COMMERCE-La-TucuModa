@@ -6,6 +6,7 @@ import Detail from "./components/Details/Detail.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import About from "./components/About/About";
 import Contact from "./components/Contactos/Contact";
+import Register from './components/Auth/Register.jsx';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/detail/:id" element={<Detail />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path='/register' element={<Register />} />
         </Routes>
       </div>
     </BrowserRouter>
