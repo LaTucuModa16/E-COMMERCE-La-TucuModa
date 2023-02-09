@@ -54,9 +54,11 @@ export default function Home() {
           setFlagRefresh_={setFlagRefresh_}
           setCurrentPage={setCurrentPage}
         />
-        <button className="sinefec mx-3">
-          <i className="fa-solid fa-cart-shopping fa-xl"></i>
-        </button>
+        <Link to="/cart">
+          <button className="sinefec mx-3">
+            <i className="fa-solid fa-cart-shopping fa-xl"></i>
+          </button>
+        </Link>
       </div>
 
       {/* seccion stock */}
@@ -85,13 +87,7 @@ export default function Home() {
                 currentProducts?.map((p, pos) => {
                   return (
                     <div className="col-md-6 col-lg-4 d-flex justify-content-center">
-                      <Card
-                        key={pos}
-                        id={p.id}
-                        name={p.name}
-                        img={p.img}
-                        price={p.price}
-                      />
+                      <Card key={pos} product={p} />
                     </div>
                   );
                 })

@@ -46,8 +46,15 @@ export function registerUser(payload) {
   return async function (dispatch) {
     const json = await axios.post("http://localhost:3001/register", payload);
     return dispatch({
-      type: 'REGISTER_USER',
+      type: "REGISTER_USER",
       payload: json,
     });
   };
-};
+}
+
+export function addToCart(payload) {
+  return {
+    type: "ADD_CART",
+    payload,
+  };
+}

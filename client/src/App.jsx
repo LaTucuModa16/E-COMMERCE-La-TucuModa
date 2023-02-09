@@ -9,8 +9,8 @@ import Contact from "./components/Contactos/Contact";
 
 import CreateForm from "./components/CreateForm/CreateForm";
 
-import Register from './components/Auth/Register.jsx';
-
+import Register from "./components/Auth/Register.jsx";
+import CartShop from "./components/CartShop/CartShop";
 
 function App() {
   return (
@@ -22,11 +22,11 @@ function App() {
           <Route path="/detail/:id" element={<Detail />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<CartShop />} />
 
           <Route path="/form" element={<CreateForm />} />
 
-          <Route path='/register' element={<Register />} />
-
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </BrowserRouter>

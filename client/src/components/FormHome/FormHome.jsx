@@ -74,10 +74,9 @@ export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
 
   return (
     <div>
-      {/* <hr className="" /> */}
       <button
         type="button"
-        class="glow-on-hover"
+        className="glow-on-hover"
         onClick={(e) => {
           handleClick(e);
         }}
@@ -105,6 +104,7 @@ export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
                       name="categorie"
                       type="radio"
                       id={pos}
+                      key={pos}
                     />
                   </div>
                 );
