@@ -5,12 +5,13 @@ const postProducts = require("./products/post");
 const deleteProduct = require("./products/delete");
 const categories = require('./categories/get.js');
 
-const register = require("./auth.js/register");
+const register = require("./auth.js/register.js");
 const login = require("./auth.js/login");
 
 const postCart = require('./cart/post.js');
 const getCart = require('./cart/get.js');
 const deleteCart = require('./cart/delete.js');
+const getUsers = require('./user/get.js');
 
 const mercadopago = require("./mercadoPago/checkout")
 /*--------------------------------------  routes PRODUCTS  --------------------------------------  */
@@ -25,6 +26,7 @@ router.use('/categories', categories);
 
 router.use("/register", register);
 router.use("/login", login);
+router.use('/users', getUsers);
 
 /*--------------------------------------  routes CART  --------------------------------------  */
 

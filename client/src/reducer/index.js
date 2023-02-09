@@ -62,6 +62,12 @@ function rootReducer(state = initialState, action) {
         filterProducts: filters,
         products: filteredProducts,
       };
+
+      case 'REGISTER_USER':
+      return {
+        ...state
+      };
+
     default:
       return state;
   }
