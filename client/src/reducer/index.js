@@ -7,7 +7,11 @@ const initialState = {
     brand: "all",
     size: "all",
   },
+
+  cart: [],
+
   user: {},
+
 };
 
 function rootReducer(state = initialState, action) {
@@ -64,6 +68,7 @@ function rootReducer(state = initialState, action) {
         products: filteredProducts,
       };
 
+
     case "LOGIN":
       return {
         ...state,
@@ -71,9 +76,21 @@ function rootReducer(state = initialState, action) {
       }
 
       case 'REGISTER_USER':
+
       return {
-        ...state
+        ...state,
       };
+
+    case "ADD_CART":
+      const addedProduct = state.cart.find((p) => p.id === action.payload.id);
+      if (addedProduct) {
+        addedProduct.cantidad++;
+      } else {
+        return {
+          ...state,
+          cart: [...state.cart, { ...action.payload, cantidad: 1 }],
+        };
+      }
 
     default:
       return state;
