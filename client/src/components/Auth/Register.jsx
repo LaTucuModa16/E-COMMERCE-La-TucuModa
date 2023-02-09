@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import NavBar from '../NavBar/Navbar.jsx';
 import { registerUser } from '../../actions/index.js';
 import { useForm } from 'react-hook-form';
@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form';
 
 export default function Register() {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const {register, formState: { errors }, handleSubmit} = useForm();
 
 	const [input, setInput] = useState({
@@ -22,6 +23,7 @@ export default function Register() {
 		dispatch(registerUser(input));
 		alert('Usuario creado exitosamente');
 		e.target.reset();
+		navigate('/home');
 	};
 
 
