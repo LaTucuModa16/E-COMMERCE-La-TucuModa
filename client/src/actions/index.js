@@ -47,12 +47,12 @@ export function LoginUser(payload) {
       let json = await axios.post("http://localhost:3001/login", payload);
       return dispatch({
         type: "LOGIN",
-        payload: json.data
-      })
+        payload: json.data,
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 }
 export function registerUser(payload) {
   return async function (dispatch) {
@@ -62,7 +62,6 @@ export function registerUser(payload) {
       payload: json,
     });
   };
-
 }
 
 export function addToCart(payload) {
@@ -72,6 +71,9 @@ export function addToCart(payload) {
   };
 }
 
-};
-
-
+export function removeCart(payload) {
+  return {
+    type: "REMOVE_CART",
+    payload,
+  };
+}

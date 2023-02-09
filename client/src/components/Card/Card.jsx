@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../Details/Detail.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Card, Button } from "react-bootstrap";
@@ -8,6 +8,19 @@ import Toastify from "toastify-js";
 
 export default function Card_({ product }) {
   const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  const [added, setAdded] = useState(0);
+
+  useEffect(() => {
+    const addedProduct = cart.find((p) => p.id === product.id);
+    if (addedProduct) {
+      setAdded(addedProduct.cantidad);
+    }
+  }, [cart]);
+
+  useEffect(() => {
+    console.log(added);
+  }, [added]);
 
   const handleClick = () => {
     dispatch(addToCart(product));
