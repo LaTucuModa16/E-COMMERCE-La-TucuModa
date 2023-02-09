@@ -7,7 +7,7 @@ const getCart = async (userId) => {
 		},
 		include: {
 			model: Product,
-			attributes: ['name', 'img', 'price']
+			attributes: ['id', 'name', 'img', 'price']
 		}
 	});
 	const result = cart.map(e => {
