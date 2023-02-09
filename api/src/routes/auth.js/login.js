@@ -5,9 +5,9 @@ const bcrypt = require("bcryptjs")
 
 router.post("/", async (req, res) => {
     try {
-        const { username, password } = req.body;
+        const { email, password } = req.body;
 
-        const userFound = await User.findOne({ where: { username } })
+        const userFound = await User.findOne({ where: { email } })
 
         if (!userFound) return res.status(404).json({ msg: "User not found" })
 

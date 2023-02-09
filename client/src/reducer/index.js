@@ -7,7 +7,11 @@ const initialState = {
     brand: "all",
     size: "all",
   },
+
   cart: [],
+
+  user: {},
+
 };
 
 function rootReducer(state = initialState, action) {
@@ -64,7 +68,15 @@ function rootReducer(state = initialState, action) {
         products: filteredProducts,
       };
 
-    case "REGISTER_USER":
+
+    case "LOGIN":
+      return {
+        ...state,
+        user: action.payload
+      }
+
+      case 'REGISTER_USER':
+
       return {
         ...state,
       };
