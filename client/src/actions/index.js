@@ -41,3 +41,17 @@ export function setFilters(payload) {
     payload,
   };
 }
+
+export function LoginUser(payload) {
+  return async function (dispatch) {
+    try {
+      let json = await axios.post("http://localhost:3001/login", payload);
+      return dispatch({
+        type: "LOGIN",
+        payload: json.data
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
