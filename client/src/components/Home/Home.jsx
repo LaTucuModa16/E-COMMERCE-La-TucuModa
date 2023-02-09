@@ -7,6 +7,7 @@ import Navbar from "../NavBar/Navbar";
 import Paginado from "../Paginado/Paginado";
 import FormHome from "../FormHome/FormHome";
 import SearchBar from "../SeaarchBar/SearchBar";
+import "./Home.css";
 
 export default function Home() {
   const allProducts = useSelector((state) => state.products);
@@ -46,48 +47,60 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <div className="d-block d-md-none d-flex justify-content-center">
+
+      {/* seccion mas alta */}
+      <div className="d-flex justify-content-between p-2">
         <SearchBar
           setFlagRefresh_={setFlagRefresh_}
           setCurrentPage={setCurrentPage}
         />
+        <button className="sinefec mx-3">
+          <i className="fa-solid fa-cart-shopping fa-xl"></i>
+        </button>
       </div>
-      <div className="d-flex row mt-5">
-        {showForm ? (
-          <div className="d-none d-md-block col-1">
-            <FormHome
-              setFlagRefresh_={setFlagRefresh_}
-              setCurrentPage={setCurrentPage}
+
+      {/* seccion stock */}
+
+      <div className="row container-fluid">
+        <div className="col-2" style={{ backgroundColor: "#F8F9F9" }}>
+          {showForm ? (
+            <div className="d-none d-md-block">
+              <FormHome
+                setFlagRefresh_={setFlagRefresh_}
+                setCurrentPage={setCurrentPage}
+              />
+            </div>
+          ) : null}
+        </div>
+        <div className="col-sm-12 col-md-10">
+          <div className="text-center">
+            <Paginado
+              productsPerPage={productsPerPage}
+              allProducts={allProducts.length}
+              settingCurrentPage={settingCurrentPage}
+              currentPage={currentPage}
             />
-          </div>
-        ) : null}
-        <div className="text-center col conteiner">
-          <Paginado
-            productsPerPage={productsPerPage}
-            allProducts={allProducts.length}
-            settingCurrentPage={settingCurrentPage}
-            currentPage={currentPage}
-          />
-          <div className="d-flex row justify-content-around">
-            {currentProducts.length > 0 ? (
-              currentProducts?.map((p, pos) => {
-                return (
-                  <div className="col-md-6 col-lg-4 d-flex justify-content-center">
-                    <Card
-                      key={pos}
-                      id={p.id}
-                      name={p.name}
-                      img={p.img}
-                      price={p.price}
-                    />
-                  </div>
-                );
-              })
-            ) : (
-              <div>
-                <h5>No se encontraron productos con esas caracteristicas</h5>
-              </div>
-            )}
+            <div className="d-flex row justify-content-around">
+              {currentProducts.length > 0 ? (
+                currentProducts?.map((p, pos) => {
+                  return (
+                    <div className="col-md-6 col-lg-4 d-flex justify-content-center">
+                      <Card
+                        key={pos}
+                        id={p.id}
+                        name={p.name}
+                        img={p.img}
+                        price={p.price}
+                      />
+                    </div>
+                  );
+                })
+              ) : (
+                <div>
+                  <h5>No se encontraron productos con esas caracteristicas</h5>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
