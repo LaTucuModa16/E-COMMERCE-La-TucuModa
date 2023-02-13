@@ -5,8 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { LoginUser } from "../../actions"
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import styled from "styled-components";
-import { FaGoogle, FaFacebook, FaTwitter } from "react-icons/fa"
 import { MainContainer, WelcomeText, ButtonStyled } from "./StyledLogin";
 import "./Login.css"
 

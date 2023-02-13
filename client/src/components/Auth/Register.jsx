@@ -4,12 +4,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import NavBar from '../NavBar/Navbar.jsx';
 import { registerUser } from '../../actions/index.js';
 import { useForm } from 'react-hook-form';
- 
+
 
 export default function Register() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const {register, formState: { errors }, handleSubmit} = useForm();
+	const { register, formState: { errors }, handleSubmit } = useForm();
 
 	const onSubmit = (data, e) => {
 		dispatch(registerUser(data));
@@ -19,7 +19,7 @@ export default function Register() {
 	};
 
 
-	return(
+	return (
 		<div>
 			<NavBar />
 			<form onSubmit={handleSubmit(onSubmit)}>
@@ -69,5 +69,5 @@ export default function Register() {
 				</Link>
 			</div>
 		</div>
-		)
+	)
 };
