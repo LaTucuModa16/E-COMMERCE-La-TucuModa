@@ -10,7 +10,9 @@ import "react-toastify/dist/ReactToastify.css";
 export default function Card_({ product }) {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+
   const [added, setAdded] = useState(0);
+
 
   useEffect(() => {
     refreshAdded();
@@ -27,6 +29,7 @@ export default function Card_({ product }) {
 
   const addProduct = () => {
     dispatch(addToCart(product));
+
     toast.success("Agregado al carrito con éxito!", {
       position: "bottom-right",
       autoClose: 1000,
@@ -37,11 +40,13 @@ export default function Card_({ product }) {
       progress: undefined,
       theme: "light",
     });
+
     refreshAdded();
   };
 
   const deteleProduct = () => {
     dispatch(removeCart(product));
+
     toast.success("Elminado con éxito!", {
       position: "bottom-right",
       autoClose: 1000,
@@ -52,6 +57,7 @@ export default function Card_({ product }) {
       progress: undefined,
       theme: "light",
     });
+
     refreshAdded();
   };
 
