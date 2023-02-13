@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import NavBar from '../NavBar/Navbar.jsx';
 import { registerUser } from '../../actions/index.js';
 import { useForm } from 'react-hook-form';
+import './Register.css';
  
 
 export default function Register() {
@@ -22,51 +23,54 @@ export default function Register() {
 	return(
 		<div>
 			<NavBar />
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<div>
-					<label>NOMBRE DE USUARIO</label>
+			<div className="formCont">
+				<h1 className="title">Registro de Usuario</h1>
+				<form onSubmit={handleSubmit(onSubmit)}>
+				<div className="formUsername">
+					<label className="username">NOMBRE DE USUARIO</label>
 					<input type='text' {...register('username', {
 						required: true
 					})} />
-					{errors.username?.type === 'required' && <p>Username is required</p>}
+					{errors.username?.type === 'required' && <p className="p1">Username is required</p>}
 				</div>
-				<div>
-					<label>NOMBRE</label>
+				<div className="formName">
+					<label className="name">NOMBRE</label>
 					<input type='text' {...register('name', {
 						required: true
 					})} />
-					{errors.name?.type === 'required' && <p>Name is required</p>}
+					{errors.name?.type === 'required' && <p className="p2">Name is required</p>}
 				</div>
-				<div>
-					<label>APELLIDO</label>
+				<div className="formLastname">
+					<label className="lastname">APELLIDO</label>
 					<input type='text' {...register('last_name', {
 						required: true
 					})} />
-					{errors.last_name?.type === 'required' && <p>Lastname is required</p>}
+					{errors.last_name?.type === 'required' && <p className="p3">Lastname is required</p>}
 				</div>
-				<div>
-					<label>EMAIL</label>
+				<div className="formEmail">
+					<label className="email">EMAIL</label>
 					<input type='email' placeholder='username@example.com' {...register('email', {
 						required: true,
 						pattern: /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
 					})} />
-					{errors.email?.type === 'required' && <p>Email is required</p>}
-					{errors.email?.type === 'pattern' && <p>The format is incorrect</p>}
+					{errors.email?.type === 'required' && <p className="p4">Email is required</p>}
+					{errors.email?.type === 'pattern' && <p className="p5">Format incorrect</p>}
 				</div>
-				<div>
-					<label>CONTRASEÑA</label>
+				<div className="formPassword">
+					<label className="password">CONTRASEÑA</label>
 					<input type='password' placeholder='******' {...register('password', {
 						required: true
 					})} />
-					{errors.password?.type === 'required' && <p>Password is required</p>}
+					{errors.password?.type === 'required' && <p className="p6">Password is required</p>}
 				</div>
-				<button type='submit'>REGISTRARSE</button>
-			</form>
-			<div>
+				<button type='submit' className="but11">REGISTRARSE</button>
+				</form>
+				<div className="p7">
 				<p>¿Ya tienes una cuenta?</p>
 				<Link to='/login'>
-					<a>Inicia Sesión</a>
+					<a className="p8">Inicia Sesión</a>
 				</Link>
+				</div>
 			</div>
 		</div>
 		)

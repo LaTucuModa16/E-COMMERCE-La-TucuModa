@@ -72,6 +72,5 @@ export function addToCart(payload) {
   };
 }
 
-};
 
 
