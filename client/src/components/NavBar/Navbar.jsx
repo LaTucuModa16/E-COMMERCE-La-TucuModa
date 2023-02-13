@@ -31,6 +31,9 @@ function OffcanvasExample() {
                   <Nav.Link href="/about" className="mx-3">
                     Sobre Nosotros
                   </Nav.Link>
+                  <Nav.Link href="/form" className="mx-3">
+                    Crear Producto
+                  </Nav.Link>
                   <Nav.Link href="/contact" className="mx-3">
                     Contactanos
                   </Nav.Link>

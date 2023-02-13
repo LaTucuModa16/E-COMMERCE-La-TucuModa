@@ -63,11 +63,17 @@ function rootReducer(state = initialState, action) {
         filterProducts: filters,
         products: filteredProducts,
       };
+
     case "LOGIN":
       return {
         ...state,
         user: action.payload
       }
+
+      case 'REGISTER_USER':
+      return {
+        ...state
+      };
 
     default:
       return state;

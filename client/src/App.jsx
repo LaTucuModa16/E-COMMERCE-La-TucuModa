@@ -8,10 +8,15 @@ import About from "./components/About/About";
 import Contact from "./components/Contactos/Contact";
 import Login from "./components/Auth/Login";
 
+import CreateForm from "./components/CreateForm/CreateForm";
+
+import Register from './components/Auth/Register.jsx';
+
+
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div>
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
           <Route path="/home" element={<Home />} />
@@ -19,6 +24,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/form" element={<CreateForm />} />
+          <Route path='/register' element={<Register />} />
         </Routes>
       </div>
     </BrowserRouter>
