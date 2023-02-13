@@ -72,12 +72,38 @@ function rootReducer(state = initialState, action) {
     case "ADD_CART":
       const addedProduct = state.cart.find((p) => p.id === action.payload.id);
       if (addedProduct) {
-        addedProduct.cantidad++;
+        const addedProduct_ = JSON.parse(JSON.stringify(addedProduct));
+        addedProduct_.cantidad++;
+        const res = state.cart.filter((p) => p.id !== action.payload.id);
+        return {
+          ...state,
+          cart: [...res, addedProduct_],
+        };
       } else {
         return {
           ...state,
           cart: [...state.cart, { ...action.payload, cantidad: 1 }],
         };
+      }
+
+    case "REMOVE_CART":
+      const removeProduct = state.cart.find((p) => p.id === action.payload.id);
+      if (removeProduct) {
+        const removeProduct_ = JSON.parse(JSON.stringify(removeProduct));
+        if (removeProduct_.cantidad === 1) {
+          return {
+            ...state,
+            cart: state.cart.filter((p) => p.id !== action.payload.id),
+          };
+        } else {
+          const removeProduct_ = JSON.parse(JSON.stringify(removeProduct));
+          const res = state.cart.filter((p) => p.id !== action.payload.id);
+          removeProduct_.cantidad--;
+          return {
+            ...state,
+            cart: [...res, removeProduct_],
+          };
+        }
       }
 
     default:
