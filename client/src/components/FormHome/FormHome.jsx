@@ -72,6 +72,14 @@ export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
     dispatch(getProducts());
   }
 
+  const setCategorie_ = (categorie) => {
+    setCurrentPage(1);
+    setCategorie({
+      atributte: "categorie",
+      value: categorie,
+    });
+  };
+
   return (
     <div>
       <button
@@ -93,12 +101,7 @@ export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
                 return (
                   <div>
                     <Form.Check
-                      onChange={(e) =>
-                        setCategorie({
-                          atributte: "categorie",
-                          value: categorie,
-                        })
-                      }
+                      onChange={() => setCategorie_(categorie)}
                       inline
                       label={categorie}
                       name="categorie"
@@ -118,14 +121,15 @@ export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
                   return (
                     <div>
                       <Form.Check
-                        onChange={(e) =>
+                        onChange={() => {
+                          setCurrentPage(1);
                           dispatch(
                             setFilters({
                               atributte: "brand",
                               value: brand,
                             })
-                          )
-                        }
+                          );
+                        }}
                         inline
                         label={brand}
                         name="brand"

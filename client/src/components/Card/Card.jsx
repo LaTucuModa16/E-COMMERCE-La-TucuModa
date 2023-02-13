@@ -13,6 +13,7 @@ export default function Card_({ product }) {
 
   const [added, setAdded] = useState(0);
 
+
   useEffect(() => {
     refreshAdded();
   }, [cart]);
@@ -28,31 +29,35 @@ export default function Card_({ product }) {
 
   const addProduct = () => {
     dispatch(addToCart(product));
-    // toast.success("Agregado al carrito con éxito!", {
-    //   position: "bottom-right",
-    //   autoClose: 1000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    //   theme: "light",
-    // });
+
+    toast.success("Agregado al carrito con éxito!", {
+      position: "bottom-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
     refreshAdded();
   };
 
   const deteleProduct = () => {
     dispatch(removeCart(product));
-    // toast.success("Elminado con éxito!", {
-    //   position: "bottom-right",
-    //   autoClose: 1000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    //   theme: "light",
-    // });
+
+    toast.success("Elminado con éxito!", {
+      position: "bottom-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
     refreshAdded();
   };
 

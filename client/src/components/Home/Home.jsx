@@ -22,6 +22,15 @@ export default function Home() {
     indexOfLastProducts
   );
 
+  const [show, setShow] = useState(true);
+
+  useEffect(() => {
+    setShow(false);
+    setTimeout(() => {
+      setShow(true);
+    }, 50);
+  }, [currentPage]);
+
   const [flagRefresh, setFlagRefresh] = useState(false);
   const [showForm, setshowForm] = useState(true);
 
@@ -83,7 +92,7 @@ export default function Home() {
               currentPage={currentPage}
             />
             <div className="d-flex row justify-content-around">
-              {currentProducts.length > 0 ? (
+              {currentProducts.length > 0 && show ? (
                 currentProducts?.map((p, pos) => {
                   return (
                     <div className="col-md-6 col-lg-4 d-flex justify-content-center">
