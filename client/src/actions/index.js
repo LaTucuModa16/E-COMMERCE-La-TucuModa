@@ -72,6 +72,11 @@ export function addToCart(payload) {
   };
 }
 
-};
 
+export function removeCart(payload) {
+  return {
+    type: "REMOVE_CART",
+    payload,
+  };
+}
 

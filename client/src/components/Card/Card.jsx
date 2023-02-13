@@ -1,25 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../Details/Detail.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { addToCart } from "../../actions";
-import Toastify from "toastify-js";
+import { addToCart, removeCart } from "../../actions";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Card_({ product }) {
   const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
 
-  const handleClick = () => {
+  const [added, setAdded] = useState(0);
+
+  useEffect(() => {
+    refreshAdded();
+  }, [cart]);
+
+  const refreshAdded = () => {
+    const addedProduct = cart.find((p) => p.id === product.id);
+    if (addedProduct) {
+      setAdded(addedProduct.cantidad);
+    } else {
+      setAdded(0);
+    }
+  };
+
+  const addProduct = () => {
     dispatch(addToCart(product));
-    Toastify({
-      text: "Producto agregado con éxito",
-      duration: 1000,
-      close: false,
-      gravity: "right",
-      position: "right",
-      style: { background: "linear-gradient(to right, #00b09b, #96c93d)" },
-      stopOnFocus: true,
-    }).showToast();
+    // toast.success("Agregado al carrito con éxito!", {
+    //   position: "bottom-right",
+    //   autoClose: 1000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   progress: undefined,
+    //   theme: "light",
+    // });
+    refreshAdded();
+  };
+
+  const deteleProduct = () => {
+    dispatch(removeCart(product));
+    // toast.success("Elminado con éxito!", {
+    //   position: "bottom-right",
+    //   autoClose: 1000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   progress: undefined,
+    //   theme: "light",
+    // });
+    refreshAdded();
   };
 
   return (
@@ -34,13 +68,54 @@ export default function Card_({ product }) {
       <Card.Body>
         <Card.Title className="text-primary">${product.price}.-</Card.Title>
         <Card.Text>{product.name}</Card.Text>
-        <Card.Text>En Stock:{product.stock}</Card.Text>
+        <Card.Text>En Stock: {product.stock}</Card.Text>
         <Link key={product.id} to={"/detail/" + product.id}>
           <Button variant="dark">Ver detalles</Button>
         </Link>
-        <button className="sinefec mx-3" onClick={handleClick}>
-          <i className="fa-solid fa-cart-shopping fa-xl"></i>
-        </button>
+        {added === 0 ? (
+          <button className="sinefec mx-3" onClick={addProduct}>
+            <i className="fa-solid fa-cart-shopping fa-xl"></i>
+          </button>
+        ) : (
+          <div classname="">
+            <Button
+              className=""
+              onClick={deteleProduct}
+              size="sm"
+              variant="outline-secondary"
+            >
+              -
+            </Button>
+            <p className="">{added}</p>
+            <Button
+              className=""
+              disabled={!(product.stock > added)}
+              onClick={addProduct}
+              size="sm"
+              variant="outline-secondary"
+            >
+              +
+            </Button>
+            {!(product.stock > added) ? (
+              <p className="text-muted">Producto agotado!</p>
+            ) : null}
+          </div>
+        )}
+
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+        {/* Same as */}
+        <ToastContainer />
       </Card.Body>
     </Card>
   );
