@@ -21,8 +21,8 @@ const enviarMail = async (mail, token) => {
     const mensaje = {
         from: MAIL,
         to: mail,
-        subject: "correo de prueba",
-        html: "Hola estoy probando" + token
+        subject: "Welcome to your community",
+        html: "<h2>Thank you for registering 👖</h2> <img src=`https://mundotextilmag.com.ar/wp-content/uploads/came-620x330.jpg` /> <h3>We welcome you to our ecommerce laTucuModa. We are pioneers in style, we will be sending exclusive clothing promotions for subscribers like you.</h3>" + token
     }
 
     const transport = nodemailer.createTransport(config);

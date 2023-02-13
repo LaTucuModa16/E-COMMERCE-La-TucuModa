@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Raleway:wght@100&family=Urbanist:wght@100&display=swap');
+
+.container {
+    background-image: url('https://fondosmil.com/fondo/27475.jpg');
+    background-size: cover;
+    background-position: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 200px;
+}
+
+.inputContainer {
+    color: black;
+    background: rgba(255, 255, 255, 0.13);
+    box-shadow: 0 1px 4px 0px #161515e8;
+    border-radius: 10px;
+    width: 40vh;
+    height: 4vh;
+    border: none;
+    outline: none;
+    letter-spacing: 0.5mm;
+    display: flex;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.inputContainer:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.13);
+    box-shadow: 0 1px 8px 1px #161515e8;
+    border-radius: 10px;
+    width: 40vh;
+    height: 4vh;
+    border: none;
+    outline: none;
+    display: flex;
+}
+
+.containerPassword {
+    margin-top: 20px;
+}
+
+.containerButton {
+    margin: 1rem 0 2rem 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.error {
+    color: rgb(163, 34, 34);
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+}
