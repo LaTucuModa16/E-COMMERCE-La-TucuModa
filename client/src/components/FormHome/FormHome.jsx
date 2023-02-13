@@ -72,12 +72,19 @@ export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
     dispatch(getProducts());
   }
 
+  const setCategorie_ = (categorie) => {
+    setCurrentPage(1);
+    setCategorie({
+      atributte: "categorie",
+      value: categorie,
+    });
+  };
+
   return (
     <div>
-      {/* <hr className="" /> */}
       <button
         type="button"
-        class="glow-on-hover"
+        className="glow-on-hover"
         onClick={(e) => {
           handleClick(e);
         }}
@@ -94,17 +101,13 @@ export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
                 return (
                   <div>
                     <Form.Check
-                      onChange={(e) =>
-                        setCategorie({
-                          atributte: "categorie",
-                          value: categorie,
-                        })
-                      }
+                      onChange={() => setCategorie_(categorie)}
                       inline
                       label={categorie}
                       name="categorie"
                       type="radio"
                       id={pos}
+                      key={pos}
                     />
                   </div>
                 );
@@ -118,14 +121,15 @@ export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
                   return (
                     <div>
                       <Form.Check
-                        onChange={(e) =>
+                        onChange={() => {
+                          setCurrentPage(1);
                           dispatch(
                             setFilters({
                               atributte: "brand",
                               value: brand,
                             })
-                          )
-                        }
+                          );
+                        }}
                         inline
                         label={brand}
                         name="brand"
