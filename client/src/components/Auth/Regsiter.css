@@ -1,0 +1,172 @@
+.formCont {
+	border: 1px solid;
+	width: 600px;
+	margin-left: 650px;
+	margin-top: 50px;
+	height: 800px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.40);
+}
+
+.title {
+	text-transform: uppercase;
+	margin-left: 90px;
+}
+
+.formUsername {
+	border: 1px solid;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.40);
+	padding: 10px;
+	width: 450px;
+	margin-left: 80px;
+	margin-bottom: 20px;
+	background-color: white;
+}
+
+.username {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: monospace;
+	font-size: 20px;
+	margin-right: 45px;
+}
+
+.p1 {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: red;
+	margin-left: 232px;
+}
+
+.formName {
+	border: 1px solid;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.40);
+	padding: 10px;
+	width: 450px;
+	margin-left: 80px;
+	margin-bottom: 20px;
+	background-color: white;
+}
+
+.name {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: monospace;
+	font-size: 20px;
+	margin-right: 167px;
+}
+
+.p2 {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: red;
+	margin-left: 232px;
+}
+
+.formLastname {
+	border: 1px solid;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.40);
+	padding: 10px;
+	width: 450px;
+	margin-left: 80px;
+	margin-bottom: 20px;
+	background-color: white;
+}
+
+.lastname {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: monospace;
+	font-size: 20px;
+	margin-right: 145px;
+}
+
+.p3 {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: red;
+	margin-left: 232px;
+}
+
+.formEmail {
+	border: 1px solid;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.40);
+	padding: 10px;
+	width: 450px;
+	margin-left: 80px;
+	margin-bottom: 20px;
+	background-color: white;
+}
+
+.email {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: monospace;
+	font-size: 20px;
+	margin-right: 178px;
+}
+
+.p4 {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: red;
+	margin-left: 232px;
+}
+
+.p5 {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: red;
+	margin-left: 232px;
+}
+
+.formPassword {
+	border: 1px solid;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.40);
+	padding: 10px;
+	width: 450px;
+	margin-left: 80px;
+	margin-bottom: 20px;
+	background-color: white;
+}
+
+.password {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: monospace;
+	font-size: 20px;
+	margin-right: 123px;
+}
+
+.p6 {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: red;
+	margin-left: 232px;
+}
+
+.but1 {
+	font-size: 20px;
+	width: 250px;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: monospace;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.40);
+	cursor: pointer;
+	margin-left: 180px;
+}
+
+.login {
+	margin-left: 230px;
+	margin-top: 50px;
+}
+
+.inc {
+	margin-left: 35px;
+}
