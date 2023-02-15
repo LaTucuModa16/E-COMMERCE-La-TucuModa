@@ -17,7 +17,7 @@ const mercadopago = require("./mercadoPago/checkout")
 
 const getUsers = require("./user/get");
 const updateUser = require("./user/update");
-const deleteUser = require("./user/delete");
+
 
 /*--------------------------------------  routes PRODUCTS  --------------------------------------  */
 
@@ -45,6 +45,6 @@ router.use("/mercadopago", mercadopago)
 
 /*--------------------------------------  routes USERS  --------------------------------------  */
 
-router.use("/users", getUsers, updateUser, deleteUser)
+router.use("/users", getUsers, updateUser)
 
 module.exports = router;
