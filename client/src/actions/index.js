@@ -71,10 +71,16 @@ export function addToCart(payload) {
   };
 }
 
-
 export function removeCart(payload) {
   return {
     type: "REMOVE_CART",
+    payload,
+  };
+}
+
+export function setCart(payload) {
+  return {
+    type: "SET_CART",
     payload,
   };
 }
@@ -88,3 +94,4 @@ export function getUsers() {
     })
   }
 }
+

@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./components/LandingPage/LandingPage";
@@ -17,6 +19,19 @@ import Sales from "./components/DashBoard/Pages/Sales/Sales";
 import Clients from "./components/DashBoard/Pages/Clients/Clients";
 
 function App() {
+  const dispatch = useDispatch();
+
+  const guardarCarroLocal = () => {
+    const cartLS = JSON.parse(localStorage.getItem("cart"));
+    if (cartLS) {
+      dispatch({ type: "SET_CART", payload: cartLS });
+    }
+  };
+
+  useEffect(() => {
+    guardarCarroLocal();
+  }, []);
+
   return (
     <BrowserRouter>
       <div>
@@ -35,6 +50,7 @@ function App() {
           <Route path="/dash" element={<HomeDash />} />
           <Route path="/sales" element={<Sales />} />
           <Route path="/clients" element={<Clients />} />
+
         </Routes>
       </div>
     </BrowserRouter>
