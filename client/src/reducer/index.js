@@ -7,9 +7,8 @@ const initialState = {
     brand: "all",
     size: "all",
   },
-
+  users: [],
   cart: [],
-
   user: {},
 };
 
@@ -113,6 +112,12 @@ function rootReducer(state = initialState, action) {
             cart: [...res, removeProduct_],
           };
         }
+      }
+
+    case "GET_USERS":
+      return {
+        ...state,
+        users: action.payload
       }
 
     default:
