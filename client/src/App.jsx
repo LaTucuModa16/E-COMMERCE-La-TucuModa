@@ -12,6 +12,11 @@ import Login from "./components/Auth/Login";
 import CreateForm from "./components/CreateForm/CreateForm";
 import Register from "./components/Auth/Register.jsx";
 import CartShop from "./components/CartShop/CartShop";
+import RegisterAuth0 from "./components/Auth0/RegisterAuht0";
+import DashBoard from "./components/DashBoard/DashBoardHome/DashBoard";
+import HomeDash from "./components/DashBoard/Pages/HomeDash/HomeDash";
+import Sales from "./components/DashBoard/Pages/Sales/Sales";
+import Clients from "./components/DashBoard/Pages/Clients/Clients";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,14 +41,16 @@ function App() {
           <Route path="/detail/:id" element={<Detail />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-
           <Route path="/cart" element={<CartShop />} />
-
           <Route path="/form" element={<CreateForm />} />
-
           <Route path="/register" element={<Register />} />
-
           <Route path="/login" element={<Login />} />
+          <Route path="/auth0Register" element={<RegisterAuth0 />} />
+          <Route path="/dashboard" element={<DashBoard />} />
+          <Route path="/dash" element={<HomeDash />} />
+          <Route path="/sales" element={<Sales />} />
+          <Route path="/clients" element={<Clients />} />
+
         </Routes>
       </div>
     </BrowserRouter>

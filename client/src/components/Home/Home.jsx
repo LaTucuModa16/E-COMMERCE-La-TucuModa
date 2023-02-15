@@ -94,7 +94,6 @@ export default function Home() {
               productsPerPage={productsPerPage}
               allProducts={allProducts.length}
               settingCurrentPage={settingCurrentPage}
-              currentPage={currentPage}
             />
             <div className="d-flex row justify-content-around">
               {currentProducts.length > 0 && show ? (
