@@ -4,7 +4,11 @@ import SearchBar from "../SeaarchBar/SearchBar";
 import { getCategories, setFilters, getProducts } from "../../actions";
 import { Form } from "react-bootstrap";
 
-export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
+export default function FormHome({
+  setCurrentPage,
+  setFlagRefresh_,
+  setFlagRefreshCards_,
+}) {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
   const backupProducts = useSelector((state) => state.backupProducts);
@@ -63,13 +67,15 @@ export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
     setTimeout(() => {
       setHide(false);
     }, 500);
+    setFlagRefreshCards_();
   };
 
-  function handleClick(e) {
-    setFlagRefresh_();
+  function borrarFiltros(e) {
     setCurrentPage(1);
     e.preventDefault();
     dispatch(getProducts());
+    setFlagRefresh_();
+    setFlagRefreshCards_();
   }
 
   const setCategorie_ = (categorie) => {
@@ -86,7 +92,7 @@ export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
         type="button"
         className="glow-on-hover"
         onClick={(e) => {
-          handleClick(e);
+          borrarFiltros(e);
         }}
       >
         Borrar Filtros
@@ -99,7 +105,7 @@ export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
             <Form>
               {allCategories.map((categorie, pos) => {
                 return (
-                  <div>
+                  <div key={pos}>
                     <Form.Check
                       onChange={() => setCategorie_(categorie)}
                       inline
@@ -119,16 +125,17 @@ export default function FormHome({ setCurrentPage, setFlagRefresh_ }) {
                 <h4>Marcas</h4>
                 {stock.brands.map((brand, pos) => {
                   return (
-                    <div>
+                    <div key={pos}>
                       <Form.Check
                         onChange={() => {
-                          setCurrentPage(1);
                           dispatch(
                             setFilters({
                               atributte: "brand",
                               value: brand,
                             })
                           );
+                          setCurrentPage(1);
+                          setFlagRefreshCards_();
                         }}
                         inline
                         label={brand}

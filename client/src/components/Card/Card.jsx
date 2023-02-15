@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../Details/Detail.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { json, Link } from "react-router-dom";
 import { addToCart, removeCart } from "../../actions";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,17 +13,26 @@ export default function Card_({ product }) {
 
   const [added, setAdded] = useState(0);
 
-
   useEffect(() => {
     refreshAdded();
+    saveCartToLocalStorage(cart);
   }, [cart]);
 
+  useEffect(() => {
+    const thisItem = cart?.find((item) => item.id === product.id);
+    thisItem?.cantidad && setAdded(thisItem.cantidad);
+  }, []);
+
   const refreshAdded = () => {
-    const addedProduct = cart.find((p) => p.id === product.id);
-    if (addedProduct) {
-      setAdded(addedProduct.cantidad);
-    } else {
-      setAdded(0);
+    try {
+      const addedProduct = cart?.find((p) => p.id === product.id);
+      if (addedProduct) {
+        setAdded(addedProduct.cantidad);
+      } else {
+        setAdded(0);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -42,12 +51,17 @@ export default function Card_({ product }) {
     });
 
     refreshAdded();
+    // saveCartToLocalStorage(cart);
+  };
+
+  const saveCartToLocalStorage = (cart) => {
+    localStorage.setItem("cart", JSON.stringify(cart));
   };
 
   const deteleProduct = () => {
     dispatch(removeCart(product));
 
-    toast.success("Elminado con éxito!", {
+    toast.success("Eliminado con éxito!", {
       position: "bottom-right",
       autoClose: 1000,
       hideProgressBar: false,
@@ -59,6 +73,7 @@ export default function Card_({ product }) {
     });
 
     refreshAdded();
+    // saveCartToLocalStorage(cart);
   };
 
   return (
@@ -82,7 +97,7 @@ export default function Card_({ product }) {
             <i className="fa-solid fa-cart-shopping fa-xl"></i>
           </button>
         ) : (
-          <div classname="">
+          <div className="">
             <Button
               className=""
               onClick={deteleProduct}
@@ -119,7 +134,6 @@ export default function Card_({ product }) {
           pauseOnHover
           theme="light"
         />
-        {/* Same as */}
         <ToastContainer />
       </Card.Body>
     </Card>
