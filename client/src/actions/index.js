@@ -2,7 +2,10 @@ import axios from "axios";
 
 export function getProducts() {
   return async function (dispatch) {
-    let json = await axios.get("http://localhost:3001/products", {});
+    let json = await axios.get(
+      "https://latucumoda-backend.onrender.com/products",
+      {}
+    );
     return dispatch({
       type: "GET_PRODUCTS",
       payload: json.data,
@@ -13,7 +16,7 @@ export function getProducts() {
 export function getProductsByName(name) {
   return async function (dispatch) {
     let json = await axios.get(
-      `http://localhost:3001/products?name=${name}`,
+      `https://latucumoda-backend.onrender.com/products?name=${name}`,
       {}
     );
 
@@ -26,7 +29,10 @@ export function getProductsByName(name) {
 
 export function getCategories() {
   return async function (dispatch) {
-    let json = await axios.get(`http://localhost:3001/categories`, {});
+    let json = await axios.get(
+      `https://latucumoda-backend.onrender.com/categories`,
+      {}
+    );
 
     return dispatch({
       type: "GET_CATEGORIES",
@@ -44,7 +50,10 @@ export function setFilters(payload) {
 export function LoginUser(payload) {
   return async function (dispatch) {
     try {
-      let json = await axios.post("http://localhost:3001/login", payload);
+      let json = await axios.post(
+        "https://latucumoda-backend.onrender.com/login",
+        payload
+      );
       return dispatch({
         type: "LOGIN",
         payload: json.data,
@@ -56,7 +65,10 @@ export function LoginUser(payload) {
 }
 export function registerUser(payload) {
   return async function (dispatch) {
-    const json = await axios.post("http://localhost:3001/register", payload);
+    const json = await axios.post(
+      "https://latucumoda-backend.onrender.com/register",
+      payload
+    );
     return dispatch({
       type: "REGISTER_USER",
       payload: json,
@@ -87,11 +99,10 @@ export function setCart(payload) {
 
 export function getUsers() {
   return async function (dispatch) {
-    const json = await axios("http://localhost:3001/users");
+    const json = await axios("https://latucumoda-backend.onrender.com/users");
     return dispatch({
       type: "GET_USERS",
-      payload: json.data
-    })
-  }
+      payload: json.data,
+    });
+  };
 }
-

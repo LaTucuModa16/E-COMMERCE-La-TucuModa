@@ -150,7 +150,7 @@ function CreateForm() {
       try {
         console.log("post");
         const res = await axios.post(
-          "http://localhost:3001/products",
+          "https://latucumoda-backend.onrender.com/products",
           newProduct
         );
         console.log(res);

@@ -34,7 +34,10 @@ export default function CartShop() {
     const data = {
       unit_price: total,
     };
-    const res = await axios.post("http://localhost:3001/mercadopago", data);
+    const res = await axios.post(
+      "https://latucumoda-backend.onrender.com/mercadopago",
+      data
+    );
     if (res.status === 200) {
       window.open(res.data, "_blank");
     }
