@@ -6,14 +6,17 @@ import Navbar from "react-bootstrap/Navbar";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import FormHome from "../FormHome/FormHome";
+import { useNavigate } from "react-router";
 
 function OffcanvasExample() {
+  const navigate = useNavigate();
+
   return (
     <>
       {["lg"].map((expand) => (
         <Navbar key={expand} bg="warning" expand={expand} className="mb-3">
           <Container fluid>
-            <Navbar.Brand href="/Home">La Tucumoda</Navbar.Brand>
+            <Nav.Link onClick={() => navigate("/home")}>La Tucumoda</Nav.Link>
 
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
@@ -28,10 +31,16 @@ function OffcanvasExample() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="/about" className="mx-3">
+                  <Nav.Link onClick={() => navigate("/about")} className="mx-3">
                     Sobre Nosotros
                   </Nav.Link>
-                  <Nav.Link href="/contact" className="mx-3">
+                  <Nav.Link onClick={() => navigate("/form")} className="mx-3">
+                    Crear Producto
+                  </Nav.Link>
+                  <Nav.Link
+                    onClick={() => navigate("/contact")}
+                    className="mx-3"
+                  >
                     Contactanos
                   </Nav.Link>
 

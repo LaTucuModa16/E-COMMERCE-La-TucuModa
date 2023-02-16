@@ -1,5 +1,4 @@
 const { Cart, Product } = require('../db.js');
-const jsonProducts = require('./JSON/JsonOfProducts.js');
 
 const getCart = async (userId) => {
 	const cart = await Cart.findAll({
@@ -8,7 +7,7 @@ const getCart = async (userId) => {
 		},
 		include: {
 			model: Product,
-			attributes: ['name', 'img', 'price']
+			attributes: ['id', 'name', 'img', 'price']
 		}
 	});
 	const result = cart.map(e => {
