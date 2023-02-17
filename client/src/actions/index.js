@@ -88,3 +88,27 @@ export function getUsers() {
     })
   }
 }
+
+export function updateUser(id, payload) {
+  return async function (dispatch) {
+    const json = await axios.put(`http://localhost:3001/users/${id}`, payload);
+    return dispatch({
+      type: "UPDATE_USER",
+      payload: json.data
+    })
+  }
+}
+
+export function getUserByUsername(username) {
+  return async function (dispatch) {
+    try {
+      const json = await axios("http://localhost:3001/users?username=" + username);
+      return dispatch({
+        type: "GET_USERNAME",
+        payload: json.data
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
