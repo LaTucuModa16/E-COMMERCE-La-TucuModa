@@ -51,11 +51,36 @@ const getByUsername = async (username) => {
 	}
 }
 
+const getByEmail = async (email) => {
+	try {
+		const user = await User.findAll({
+			where: { email }
+		})
+
+		const result = await user.map(e => {
+			return {
+				id: e.id,
+				username: e.username,
+				name: e.name,
+				last_name: e.last_name,
+				email: e.email,
+				password: e.password,
+				img: e.img,
+				is_banned: e.is_banned,
+				is_admin: e.is_admin
+			}
+		})
+		return result;
+	} catch (error) {
+		return res.status(400).json({ msg: error.msg })
+	}
+}
+
 const getUserId = async (id) => {
 	try {
 		const user = await User.findByPk({
 			where: {
-				id :id
+				id: id
 			}
 		});
 		const res = await user.map(e => {
@@ -78,30 +103,6 @@ const getUserId = async (id) => {
 	}
 };
 
-const getByEmail = async (email) => {
-	try {
-		const user = await User.findAll({
-			where: { email }
-		})
-
-		const result = await user.map(e => {
-			return {
-				id: e.id,
-				username: e.username,
-				name: e.name,
-				last_name: e.last_name,
-				email: e.email,
-				password: e.password,
-				img: e.img,
-				is_banned: e.is_banned,
-				is_admin: e.is_admin
-			}
-		})
-		return result;
-	} catch (error) {
-		console.log(error)
-	}
-}
 
 module.exports = {
 	getUsers,

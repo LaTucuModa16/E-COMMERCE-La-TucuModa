@@ -11,11 +11,6 @@ export default function DashBoard() {
     return (
         <div className="containerDash">
             <NavBarDash />
-            <Routes>
-                <Route path="/dash" element={<HomeDash />} />
-                <Route path="/sales" element={<Sales />} />
-                <Route path="/clients" element={<Clients />} />
-            </Routes>
         </div >
     )
 }

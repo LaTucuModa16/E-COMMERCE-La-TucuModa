@@ -17,6 +17,8 @@ import DashBoard from "./components/DashBoard/DashBoardHome/DashBoard";
 import HomeDash from "./components/DashBoard/Pages/HomeDash/HomeDash";
 import Sales from "./components/DashBoard/Pages/Sales/Sales";
 import Clients from "./components/DashBoard/Pages/Clients/Clients";
+import ClientBaned from "./components/DashBoard/Pages/Clients/ClientBaned";
+import Switch from "./components/DashBoard/Pages/Clients/Switch/Switch";
 
 function App() {
   const dispatch = useDispatch();
@@ -50,6 +52,8 @@ function App() {
           <Route path="/dash" element={<HomeDash />} />
           <Route path="/sales" element={<Sales />} />
           <Route path="/clients" element={<Clients />} />
+          <Route path="/users/id/:id" element={<ClientBaned />} />
+
 
         </Routes>
       </div>

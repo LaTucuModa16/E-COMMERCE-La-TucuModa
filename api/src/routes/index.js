@@ -13,9 +13,11 @@ const postCart = require('./cart/post.js');
 const getCart = require('./cart/get.js');
 const deleteCart = require('./cart/delete.js');
 
-const mercadopago = require("./mercadoPago/checkout")
+const mercadopago = require("./mercadoPago/checkout");
 
 const getUsers = require("./user/get");
+const geUserByUsername = require("./user/getUserByUsername");
+const getUserByEmail = require("./user/getUserByEmail");
 const updateUser = require("./user/update");
 
 
@@ -45,6 +47,6 @@ router.use("/mercadopago", mercadopago)
 
 /*--------------------------------------  routes USERS  --------------------------------------  */
 
-router.use("/users", getUsers, updateUser)
+router.use("/users", getUsers, updateUser, geUserByUsername, getUserByEmail)
 
 module.exports = router;
