@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { getUserByUsername, getUsers } from "../../../../actions";
 import { Link, useParams } from "react-router-dom";
 import NavBarDash from "../../NavBarDash/NavBarDash";
-import "./Clients.css";
 
 export default function Clients() {
   const dispatch = useDispatch();
@@ -38,33 +37,56 @@ export default function Clients() {
   return (
     <div>
       <NavBarDash />
-      <div className="containerDash">
-        <input
-          value={username}
-          type="text"
-          placeholder="Username"
-          onChange={(e) => handleInputSearch(e)}
-        />
-        <button type="submit" onClick={(e) => handleSubmitSearch(e)}>
-          Buscar
-        </button>
+      <div className="containerDash colorLetras">
+        <div className="d-flex justify-content-center p-5">
+          <input
+            className=""
+            value={username}
+            type="text"
+            placeholder="Username"
+            onChange={(e) => handleInputSearch(e)}
+          />
+          <button
+            className="mx-2"
+            type="submit"
+            onClick={(e) => handleSubmitSearch(e)}
+          >
+            Buscar
+          </button>
+        </div>
+        <hr />
+        <hr />
+        <div className="container text-center">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 m-3 ">
+            <h1 className="col">Nombre</h1>
+            <h1 className="col">Usuario</h1>
+            <h1 className="col">Mail </h1>
+            <h1 className="col">Desactivado</h1>
+          </div>
+        </div>
+        <hr />
+        <hr />
+        {allUser
+          .filter((e) => e.name.toLowerCase().includes(username.toLowerCase()))
+          .map((e) => {
+            return (
+              <div className="container text-center" key={e.id}>
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 m-3 ">
+                  <h4 className="col">{e.name}</h4>
+                  <h4 className="col">{e.username}</h4>
+                  <h4 className="col">{e.email} </h4>
+                  <input
+                    className="col"
+                    type="checkbox"
+                    checked={e.isActive}
+                    onChange={() => handleToggleUser(e)}
+                  />
+                </div>
+                <hr />
+              </div>
+            );
+          })}
       </div>
-      {allUser
-        .filter((e) => e.name.toLowerCase().includes(username.toLowerCase()))
-        .map((e) => {
-          return (
-            <div key={e.id}>
-              <h2>{e.name}</h2>
-              <h2>{e.username}</h2>
-              <h2>{e.email} </h2>
-              <input
-                type="checkbox"
-                checked={e.isActive}
-                onChange={() => handleToggleUser(e)}
-              />
-            </div>
-          );
-        })}
     </div>
   );
 }
