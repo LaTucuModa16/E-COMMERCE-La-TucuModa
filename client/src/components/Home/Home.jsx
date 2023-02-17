@@ -22,20 +22,24 @@ export default function Home() {
     indexOfLastProducts
   );
 
+  // states para refrescar
   const [show, setShow] = useState(true);
+  const [flagRefresh, setFlagRefresh] = useState(false);
+  const [flagRefreshCards, setFlagRefreshCards] = useState(false);
+  const [showForm, setshowForm] = useState(true);
 
   useEffect(() => {
     setShow(false);
     setTimeout(() => {
       setShow(true);
     }, 50);
-  }, [currentPage]);
-
-  const [flagRefresh, setFlagRefresh] = useState(false);
-  const [showForm, setshowForm] = useState(true);
+  }, [currentPage, flagRefreshCards]);
 
   const setFlagRefresh_ = () => {
     flagRefresh ? setFlagRefresh(false) : setFlagRefresh(true);
+  };
+  const setFlagRefreshCards_ = () => {
+    flagRefresh ? setFlagRefreshCards(false) : setFlagRefreshCards(true);
   };
   useEffect(() => {
     setshowForm(false);
@@ -78,6 +82,7 @@ export default function Home() {
             <div className="d-none d-md-block">
               <FormHome
                 setFlagRefresh_={setFlagRefresh_}
+                setFlagRefreshCards_={setFlagRefreshCards_}
                 setCurrentPage={setCurrentPage}
               />
             </div>
@@ -94,8 +99,11 @@ export default function Home() {
               {currentProducts.length > 0 && show ? (
                 currentProducts?.map((p, pos) => {
                   return (
-                    <div className="col-md-6 col-lg-4 d-flex justify-content-center">
-                      <Card key={pos} product={p} />
+                    <div
+                      key={pos}
+                      className="col-md-6 col-lg-4 d-flex justify-content-center"
+                    >
+                      <Card product={p} />
                     </div>
                   );
                 })

@@ -116,6 +116,13 @@ function rootReducer(state = initialState, action) {
         }
       }
 
+
+    case "SET_CART":
+      return {
+        ...state,
+        cart: action.payload,
+      };
+
     case "GET_USERS":
       return {
         ...state,
@@ -131,6 +138,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         userrr: action.payload
       }
+
 
     default:
       return state;
