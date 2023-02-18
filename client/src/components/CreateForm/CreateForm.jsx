@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts, getCategories } from "../../actions";
 import { Button } from "react-bootstrap";
 import axios from "axios";
+import NavBarDash from "../DashBoard/NavBarDash/NavBarDash";
 
 function CreateForm() {
   const allCategories = useSelector((state) => state.categories);
@@ -174,101 +175,168 @@ function CreateForm() {
 
   return (
     <>
-      <Navbar />
-      <h1>Nueva prenda</h1>
-      <div>
+      <NavBarDash />
+      <div className="containerDash colorLetras">
+        <h1 className="container d-flex justify-content-center p-4">
+          <strong>Nueva Prenda</strong>
+        </h1>
+        <hr />
+        <hr />
         <div>
-          <div>
-            <label>Nombre</label>
-            <input onChange={changeProduct} type="text" name="name" />
-          </div>
-          <div>
-            <label>Stock</label>
-            <input onChange={changeProduct} type="number" name="stock" />
-          </div>
-          <div>
-            <label>Precio</label>
-            <input onChange={changeProduct} type="number" name="price" />
-          </div>
-          <div>
-            <label>Descripción</label>
-            <input onChange={changeProduct} type="text" name="description" />
-          </div>
-          <div>
-            <label>Marca</label>
-            <input onChange={changeProduct} type="text" name="brand" />
-          </div>
-          <div>
-            <label>Color</label>
-            <div>
+          <div className="container">
+            <div className="row  my-2">
+              <label class="col-sm-4 d-flex justify-content-center">
+                Nombre
+              </label>
               <input
+                class="col-sm-6"
+                onChange={changeProduct}
                 type="text"
-                value={colourInput}
-                onChange={handleColourInput}
+                name="name"
               />
-              <button onClick={handleSubmitColor}>Agregar color</button>
             </div>
-          </div>
-          <div>
-            <label>Talle</label>
-
-            <div>
-              {sizes.map((size) => (
-                <>
-                  <Button
-                    size="sm"
-                    className="mx-1"
-                    variant={
-                      newProduct.size.includes(size)
-                        ? "dark"
-                        : "outline-secondary"
-                    }
-                    onClick={
-                      newProduct.size.includes(size)
-                        ? () => eliminarSize(size)
-                        : () => addSize(size)
-                    }
-                  >
-                    {size}
-                  </Button>
-                </>
-              ))}
+            <hr />
+            <div className="row my-2">
+              <label class="col-sm-4 d-flex justify-content-center">
+                Stock
+              </label>
+              <input
+                class="col-sm-6"
+                onChange={changeProduct}
+                type="number"
+                name="stock"
+              />
             </div>
-            <div>
-              <label>Tela</label>
-              <div>
+            <hr />
+            <div className="row my-2">
+              <label class="col-sm-4 d-flex justify-content-center">
+                Precio
+              </label>
+              <input
+                class="col-sm-6"
+                onChange={changeProduct}
+                type="number"
+                name="price"
+              />
+            </div>
+            <hr />
+            <div className="row my-2">
+              <label class="col-sm-4 d-flex justify-content-center">
+                Descripción
+              </label>
+              <input
+                class="col-sm-6"
+                onChange={changeProduct}
+                type="text"
+                name="description"
+              />
+            </div>
+            <hr />
+            <div className="row my-2">
+              <label class="col-sm-4 d-flex justify-content-center">
+                Marca
+              </label>
+              <input
+                class="col-sm-6"
+                onChange={changeProduct}
+                type="text"
+                name="brand"
+              />
+            </div>
+            <hr />
+            <div className="row my-2">
+              <label class="col-sm-4 d-flex justify-content-center">
+                Color
+              </label>
+              <div className="col-sm-8 d-flex justify-content-center">
                 <input
+                  className="col me-3"
                   type="text"
-                  value={fabricInput}
-                  onChange={handleFabricInput}
+                  value={colourInput}
+                  onChange={handleColourInput}
                 />
-                <button onClick={handleSubmitFabric}>Agregar tela</button>
+                <div className="col ms-5">
+                  <button onClick={handleSubmitColor}>Agregar color</button>
+                </div>
               </div>
             </div>
-            <div>
-              <label>Categoría</label>
-              <div>
-                {allCategories?.map((categorie) => (
+            <hr />
+            <div className="row my-2">
+              <label class="col-sm-4 d-flex justify-content-center">
+                Talle
+              </label>
+
+              <div className="col-sm-8 d-flex align-items-center mb-3">
+                {sizes.map((size) => (
                   <>
                     <Button
                       size="sm"
                       className="mx-1"
                       variant={
-                        newProduct.categorie === categorie
-                          ? "dark"
-                          : "outline-secondary"
+                        newProduct.size.includes(size)
+                          ? "warning"
+                          : "outline-warning"
                       }
-                      onClick={() => setCategorie(categorie)}
+                      onClick={
+                        newProduct.size.includes(size)
+                          ? () => eliminarSize(size)
+                          : () => addSize(size)
+                      }
                     >
-                      {categorie}
+                      {size}
                     </Button>
                   </>
                 ))}
               </div>
+              <hr />
+              <div className="row my-2">
+                <label class="col-sm-4 d-flex justify-content-center">
+                  Tela
+                </label>
+                <div className="col-sm-8 d-flex justify-content-center">
+                  <input
+                    className="col me-5"
+                    type="text"
+                    value={fabricInput}
+                    onChange={handleFabricInput}
+                  />
+                  <div className="col ms-5">
+                    <button onClick={handleSubmitFabric}>Agregar tela</button>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div className="row my-2">
+                <label class="col-sm-4 d-flex justify-content-center">
+                  Categoría
+                </label>
+                <div className="col-sm-8 d-flex  align-items-center mb-3">
+                  {allCategories?.map((categorie) => (
+                    <>
+                      <Button
+                        size="sm"
+                        className="mx-1"
+                        variant={
+                          newProduct.categorie === categorie
+                            ? "warning"
+                            : "outline-warning"
+                        }
+                        onClick={() => setCategorie(categorie)}
+                      >
+                        {categorie}
+                      </Button>
+                    </>
+                  ))}
+                </div>
+              </div>
+              <hr />
             </div>
           </div>
-
-          <button onClick={handleSubmit}>Enviar</button>
+          <div className="container d-flex justify-content-center mt-4">
+            <button className="" onClick={handleSubmit}>
+              Enviar
+            </button>
+          </div>
         </div>
       </div>
     </>

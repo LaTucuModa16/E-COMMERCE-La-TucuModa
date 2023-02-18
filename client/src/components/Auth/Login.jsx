@@ -2,16 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { LoginUser, registerUser, getUsers } from "../../actions"
+import { LoginUser, registerUser, getUsers } from "../../actions";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { MainContainer, WelcomeText, ButtonStyled } from "./StyledLogin";
 import { gapi } from 'gapi-script';
 import { GoogleLogin } from 'react-google-login';
-import "./Login.css"
+import "./Login.css";
 
 export default function Login() {
-
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const users = useSelector(state => state.users);

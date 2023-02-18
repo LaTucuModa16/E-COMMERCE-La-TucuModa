@@ -43,10 +43,6 @@ module.exports = (sequelize) => {
             type: DataTypes.TEXT,
             defaultValue: "https://cdn-icons-png.flaticon.com/512/149/149071.png"
         },
-        adult: {
-            type: DataTypes.BOOLEAN,
-            allowNull: true
-        },
         is_banned: {
             type: DataTypes.BOOLEAN,
             defaultValue: false

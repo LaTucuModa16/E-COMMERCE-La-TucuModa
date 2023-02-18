@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Raleway:wght@100&family=Urbanist:wght@100&display=swap');
 
-.container {
+.containerC {
     background-image: url('https://fondosmil.com/fondo/27475.jpg');
     background-size: cover;
     background-position: center;
@@ -14,7 +14,7 @@
     width: 200px;
 }
 
-.inputContainer {
+.inputContainerC {
     color: black;
     background: rgba(255, 255, 255, 0.13);
     box-shadow: 0 1px 4px 0px #161515e8;
@@ -29,7 +29,7 @@
     font-weight: bold;
 }
 
-.inputContainer:hover {
+.inputContainerC:hover {
     color: white;
     background: rgba(255, 255, 255, 0.13);
     box-shadow: 0 1px 8px 1px #161515e8;
@@ -41,11 +41,11 @@
     display: flex;
 }
 
-.containerPassword {
+.containerCPassword {
     margin-top: 20px;
 }
 
-.containerButton {
+.containerCButton {
     margin: 1rem 0 2rem 0;
     display: flex;
     align-items: center;

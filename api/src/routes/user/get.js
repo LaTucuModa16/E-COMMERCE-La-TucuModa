@@ -1,18 +1,25 @@
 const router = require('express').Router();
-const { getUser, getUserId } = require('../../controllers/users.js');
-const { User } = require('../../db.js');
+const { getUsers, getByUsername, getByEmail } = require('../../controllers/users');
+const { User } = require('../../db');
 
-router.get('/', async (req, res) => {
-
-	const { userId } = req.query;
-
-	if(userId) {
-		const user = await getUserId(userId);
-		res.status(200).send(user);	
-	} else {
-		const users = await getUser();
-		res.status(200).send(users);
+router.get("/", async (req, res) => {
+	const { username, email } = req.query;
+	try {
+		if (username) {
+			const user = await getByUsername(username);
+			res.status(200).send(user)
+		} else if (email) {
+			const userEmail = await getByEmail(email);
+			res.status(200).send(userEmail)
+		} else {
+			const info = await getUsers();
+			res.status(200).json(info)
+		}
+	} catch (error) {
+		console.log(error)
 	}
-});
+})
+
+
 
 module.exports = router;

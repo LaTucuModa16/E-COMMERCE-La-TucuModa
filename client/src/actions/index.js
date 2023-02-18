@@ -90,11 +90,53 @@ export function addToCart(payload) {
   };
 }
 
-
 export function removeCart(payload) {
   return {
     type: "REMOVE_CART",
     payload,
   };
 }
+
+export function setCart(payload) {
+  return {
+    type: "SET_CART",
+    payload,
+  };
+}
+
+export function getUsers() {
+  return async function (dispatch) {
+    const json = await axios("http://localhost:3001/users");
+    return dispatch({
+      type: "GET_USERS",
+      payload: json.data
+    })
+  }
+}
+
+
+export function updateUser(id, payload) {
+  return async function (dispatch) {
+    const json = await axios.put(`http://localhost:3001/users/${id}`, payload);
+    return dispatch({
+      type: "UPDATE_USER",
+      payload: json.data
+    })
+  }
+}
+
+export function getUserByUsername(username) {
+  return async function (dispatch) {
+    try {
+      const json = await axios("http://localhost:3001/users?username=" + username);
+      return dispatch({
+        type: "GET_USERNAME",
+        payload: json.data
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
 
