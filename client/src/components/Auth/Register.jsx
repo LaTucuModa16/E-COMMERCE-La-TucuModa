@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import NavBar from '../NavBar/Navbar.jsx';
-import { registerUser } from '../../actions/index.js';
+import { registerUser, getUsers } from '../../actions/index.js';
 import { useForm } from 'react-hook-form';
 import './Regsiter.css';
 
@@ -11,6 +11,15 @@ export default function Register() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const { register, formState: { errors }, handleSubmit } = useForm();
+	const users = useSelector(state => state.users);
+	// console.log(users, 'usersss');
+
+	const allEmail = users.map(e => e.email);
+	// console.log(allEmail);
+
+	const emailValidate = (email) => {
+		return !allEmail.includes(email);
+	};
 
 	const onSubmit = (data, e) => {
 		dispatch(registerUser(data));
@@ -19,7 +28,9 @@ export default function Register() {
 		navigate('/home');
 	};
 
-
+	useEffect(() => {
+		dispatch(getUsers());
+	}, [dispatch]);
 	return (
 		<div>
 			<NavBar />
@@ -51,10 +62,12 @@ export default function Register() {
 					<label className="email">EMAIL</label>
 					<input type='email' placeholder='username@example.com' {...register('email', {
 						required: true,
-						pattern: /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
+						pattern: /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
+						validate: emailValidate
 					})} />
 					{errors.email?.type === 'required' && <p className="p4">Email is required</p>}
 					{errors.email?.type === 'pattern' && <p className="p5">Format incorrect</p>}
+					{errors.email?.type === 'validate' && <p className="p5">Email already exists</p>}
 				</div>
 				<div className="formPassword">
 					<label className="password">CONTRASEÑA</label>

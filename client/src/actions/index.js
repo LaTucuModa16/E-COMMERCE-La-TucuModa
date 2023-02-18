@@ -42,6 +42,7 @@ export function setFilters(payload) {
   };
 }
 export function LoginUser(payload) {
+  // console.log(payload, 'payload')
   return async function (dispatch) {
     try {
       let json = await axios.post("http://localhost:3001/login", payload);
@@ -55,6 +56,7 @@ export function LoginUser(payload) {
   };
 }
 export function registerUser(payload) {
+  // console.log(payload, 'payload')
   return async function (dispatch) {
     const json = await axios.post("http://localhost:3001/register", payload);
     return dispatch({
@@ -63,6 +65,23 @@ export function registerUser(payload) {
     });
   };
 }
+
+export function getUsers() {
+  return async function (dispatch) {
+    const json = await axios.get('http://localhost:3001/users');
+    return dispatch({
+      type: 'GET_USERS',
+      payload: json.data
+    });
+  };
+};
+
+export function deleteUser() {
+    return {
+      type: 'DELETE_USER',
+      payload: {}
+    };
+};
 
 export function addToCart(payload) {
   return {

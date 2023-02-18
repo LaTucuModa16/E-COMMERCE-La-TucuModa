@@ -7,6 +7,7 @@ const initialState = {
     brand: "all",
     size: "all",
   },
+  users: [],
 
   cart: [],
 
@@ -77,6 +78,18 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
       };
+
+    case "GET_USERS": 
+      return {
+        ...state,
+        users: action.payload
+      }
+
+    case 'DELETE_USER':
+      return {
+        ...state,
+        user: action.payload
+      }  
 
     case "ADD_CART":
       const addedProduct = state.cart.find((p) => p.id === action.payload.id);
