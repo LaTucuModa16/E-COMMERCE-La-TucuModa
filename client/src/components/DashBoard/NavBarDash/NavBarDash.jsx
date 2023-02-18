@@ -15,11 +15,11 @@ export default function NavBarDash() {
           <Nav.Link onClick={() => navigate("/dashboard")}>Inicio</Nav.Link>
         </li>
         <li>
-          {/* <Link to="/sales">Ventas</Link> */}
-          <Nav.Link onClick={() => navigate("/sales")}>Ventas</Nav.Link>
+          <Nav.Link onClick={() => navigate("/form")}>
+            Agregar Producto
+          </Nav.Link>
         </li>
         <li>
-          {/* <Link to="/clients">Clientes</Link> */}
           <Nav.Link onClick={() => navigate("/clients")}>Clientes</Nav.Link>
         </li>
       </ul>
