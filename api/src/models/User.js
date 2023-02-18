@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
     sequelize.define('user', {
         username: {
             type: DataTypes.STRING,
-            allowNull: false,
+            // allowNull: false,
             validate: {
                 len: {
                     args: [3, 50],
@@ -37,7 +37,7 @@ module.exports = (sequelize) => {
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false,
+            // allowNull: false,
         },
         img: {
             type: DataTypes.TEXT,
