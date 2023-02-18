@@ -180,6 +180,8 @@ function CreateForm() {
         <h1 className="container d-flex justify-content-center p-4">
           <strong>Nueva Prenda</strong>
         </h1>
+        <hr />
+        <hr />
         <div>
           <div className="container">
             <div className="row  my-2">
