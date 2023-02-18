@@ -180,6 +180,8 @@ function CreateForm() {
         <h1 className="container d-flex justify-content-center p-4">
           <strong>Nueva Prenda</strong>
         </h1>
+        <hr />
+        <hr />
         <div>
           <div className="container">
             <div className="row  my-2">
@@ -272,8 +274,8 @@ function CreateForm() {
                       className="mx-1"
                       variant={
                         newProduct.size.includes(size)
-                          ? "dark"
-                          : "outline-secondary"
+                          ? "warning"
+                          : "outline-warning"
                       }
                       onClick={
                         newProduct.size.includes(size)
@@ -316,8 +318,8 @@ function CreateForm() {
                         className="mx-1"
                         variant={
                           newProduct.categorie === categorie
-                            ? "dark"
-                            : "outline-secondary"
+                            ? "warning"
+                            : "outline-warning"
                         }
                         onClick={() => setCategorie(categorie)}
                       >
