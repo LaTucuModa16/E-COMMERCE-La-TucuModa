@@ -104,17 +104,6 @@ export function setCart(payload) {
   };
 }
 
-export function getUsers() {
-  return async function (dispatch) {
-    const json = await axios("http://localhost:3001/users");
-    return dispatch({
-      type: "GET_USERS",
-      payload: json.data
-    })
-  }
-}
-
-
 export function updateUser(id, payload) {
   return async function (dispatch) {
     const json = await axios.put(`http://localhost:3001/users/${id}`, payload);

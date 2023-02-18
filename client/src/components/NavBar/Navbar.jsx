@@ -19,7 +19,7 @@ function OffcanvasExample() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector(state => state.user);
-  // console.log(user, 'useeeer');
+  console.log(user, 'useeeer');
 
   const handleDeleteUser = () => {
     dispatch(deleteUser());

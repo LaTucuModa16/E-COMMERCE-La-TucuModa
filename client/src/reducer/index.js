@@ -10,7 +10,6 @@ const initialState = {
   users: [],
   cart: [],
   user: {},
-  userr: [],
   userrr: []
 };
 
@@ -134,12 +133,6 @@ function rootReducer(state = initialState, action) {
         ...state,
         cart: action.payload,
       };
-
-    case "GET_USERS":
-      return {
-        ...state,
-        users: action.payload
-      }
 
     case "UPDATE_USER":
       return {
