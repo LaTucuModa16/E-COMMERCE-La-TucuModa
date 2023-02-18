@@ -272,8 +272,8 @@ function CreateForm() {
                       className="mx-1"
                       variant={
                         newProduct.size.includes(size)
-                          ? "dark"
-                          : "outline-secondary"
+                          ? "warning"
+                          : "outline-warning"
                       }
                       onClick={
                         newProduct.size.includes(size)
@@ -316,8 +316,8 @@ function CreateForm() {
                         className="mx-1"
                         variant={
                           newProduct.categorie === categorie
-                            ? "dark"
-                            : "outline-secondary"
+                            ? "warning"
+                            : "outline-warning"
                         }
                         onClick={() => setCategorie(categorie)}
                       >
