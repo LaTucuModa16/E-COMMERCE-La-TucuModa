@@ -52,9 +52,7 @@ function App() {
           <Route path="/dash" element={<HomeDash />} />
           <Route path="/sales" element={<Sales />} />
           <Route path="/clients" element={<Clients />} />
-          <Route path="/users/id/:id" element={<ClientBaned />} />
-
-
+          <Route path="/users/:id" element={<ClientBaned />} />
         </Routes>
       </div>
     </BrowserRouter>

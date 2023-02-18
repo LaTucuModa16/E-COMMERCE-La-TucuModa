@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUserByUsername, getUsers } from "../../../../actions";
+import { getUserByUsername, getUsers, updateUser } from "../../../../actions";
 import { Link, useParams } from "react-router-dom";
 
 
@@ -8,9 +8,12 @@ export default function Clients() {
 
     const dispatch = useDispatch();
     const allUser = useSelector((state) => state.users)
+    const userId = useSelector((state) => state.userr)
+    const { id } = useParams();
     console.log(allUser)
     const [userStatus, setUserStatus] = useState({});
     const [username, setUsername] = useState("");
+    const [baned, setBaned] = useState("")
 
     useEffect(() => {
 
@@ -35,9 +38,13 @@ export default function Clients() {
 
     }
 
-    function handleToggleUser(user) {
-        dispatch(toggleUser(user.id));
-    }
+
+    useEffect(() => {
+        setBaned({
+            is_banned: userId?.map(e => e.is_banned),
+        })
+    }, [userId])
+
 
     return (
         <div>
@@ -57,11 +64,9 @@ export default function Clients() {
                             <h2>{e.name}</h2>
                             <h2>{e.username}</h2>
                             <h2>{e.email} </h2>
-                            <input
-                                type="checkbox"
-                                checked={e.isActive}
-                                onChange={() => handleToggleUser(e)}
-                            />
+                            <Link to={`/users/${e.id}`}>
+                                <h2>Is Banned</h2>
+                            </Link>
                         </div>
                     )
                 })

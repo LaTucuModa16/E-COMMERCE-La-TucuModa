@@ -4,10 +4,10 @@ const { User } = require("../../db");
 router.put("/:id", async (req, res) => {
     try {
         const { id } = req.params;
-        const { username, name, last_name, email, password, img, is_banned, is_admin } = req.body
+        const { is_banned, is_admin } = req.body
 
         const updateUser = await User.update(
-            { username, name, last_name, email, password, img, is_banned, is_admin },
+            { is_banned, is_admin },
             { where: { id } }
 
         )
