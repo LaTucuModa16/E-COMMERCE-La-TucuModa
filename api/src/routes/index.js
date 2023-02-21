@@ -20,7 +20,6 @@ const geUserByUsername = require("./user/getUserByUsername");
 const getUserByEmail = require("./user/getUserByEmail");
 const updateUser = require("./user/update");
 
-
 /*--------------------------------------  routes PRODUCTS  --------------------------------------  */
 
 router.use("/products", getProducts);
@@ -48,5 +47,7 @@ router.use("/mercadopago", mercadopago)
 /*--------------------------------------  routes USERS  --------------------------------------  */
 
 router.use("/users", getUsers, updateUser, geUserByUsername, getUserByEmail)
+
+
 
 module.exports = router;
