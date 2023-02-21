@@ -10,7 +10,6 @@ const initialState = {
   users: [],
   cart: [],
   user: {},
-  userr: [],
   userrr: []
 };
 
@@ -79,6 +78,18 @@ function rootReducer(state = initialState, action) {
         ...state,
       };
 
+    case "GET_USERS": 
+      return {
+        ...state,
+        users: action.payload
+      }
+
+    case 'DELETE_USER':
+      return {
+        ...state,
+        user: action.payload
+      }  
+
     case "ADD_CART":
       const addedProduct = state.cart.find((p) => p.id === action.payload.id);
       if (addedProduct) {
@@ -122,12 +133,6 @@ function rootReducer(state = initialState, action) {
         ...state,
         cart: action.payload,
       };
-
-    case "GET_USERS":
-      return {
-        ...state,
-        users: action.payload
-      }
 
     case "UPDATE_USER":
       return {

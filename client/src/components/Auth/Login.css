@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Raleway:wght@100&family=Urbanist:wght@100&display=swap');
 
+
 .containerL {
     background-image: url('https://fondosmil.com/fondo/27475.jpg');
     background-size: cover;
@@ -13,6 +14,7 @@
     height: 100vh;
     width: 200px;
 }
+
 
 .inputContainerL {
     color: black;
@@ -29,6 +31,7 @@
     font-weight: bold;
 }
 
+
 .inputContainerL:hover {
     color: white;
     background: rgba(255, 255, 255, 0.13);
@@ -41,11 +44,11 @@
     display: flex;
 }
 
-.containerPassword {
+.containerCPassword {
     margin-top: 20px;
 }
 
-.containerButton {
+.containerCButton {
     margin: 1rem 0 2rem 0;
     display: flex;
     align-items: center;
@@ -56,4 +59,8 @@
     color: rgb(163, 34, 34);
     font-size: 1rem;
     letter-spacing: 0.1rem;
+}
+
+.buttonGo {
+  
 }

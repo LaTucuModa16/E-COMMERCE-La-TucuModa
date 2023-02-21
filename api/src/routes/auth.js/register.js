@@ -8,21 +8,29 @@ const { enviarMail } = require("./config/nodemailer")
 router.post("/", async (req, res) => {
     try {
         const { username, name, last_name, email, password, img, } = req.body;
-        const passwordHash = await encrypt(password)
-
-        const newUser = await User.create({
-            username,
-            name,
-            last_name,
-            email,
-            img,
-            password: passwordHash,
-        })
-
-
-        await enviarMail(email)
-        res.send({ newUser })
-
+        if(!password && !username) {
+            const newUser = await User.create({
+                name,
+                last_name,
+                email,
+                img
+            });
+            res.status(200).send({newUser});
+   
+        } else {
+            const passwordHash = await encrypt(password);
+            const newUser = await User.create({
+                username,
+                name,
+                last_name,
+                email,
+                img, 
+                password: passwordHash,
+            });
+            await enviarMail(email);
+            res.status(200).send({newUser});    
+        }
+       
     } catch (error) {
         console.log(error)
         res.status(404).send(error)
