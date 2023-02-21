@@ -1,32 +1,24 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import { updateUser, getUserByUsername } from "../../../../actions";
-import { Link, useParams, useNavigate } from "react-router-dom"
+import { updateUser } from "../../../../actions";
+import { useParams, useNavigate } from "react-router-dom"
 
 export default function ClientBaned() {
 
     const dispatch = useDispatch();
-    const { username } = useParams();
+    const { id } = useParams();
     const userId = useSelector((state) => state.userr)
     const navigate = useNavigate();
     const [input, setInput] = useState({
-        name: "",
-        last_name: "",
-        username: "",
-        email: "",
         is_banned: "",
+        is_admin: ""
     })
 
     useEffect(() => {
-        dispatch(getUserByUsername(username))
-    }, [username])
-
-    useEffect(() => {
         setInput({
-            name: userId?.map(e => e.name),
-            username: userId?.map(e => e.username),
-            is_banned: userId?.map(e => e.is_banned),
+            is_banned: userId?.map(e => e.is_banned).toString(),
+            is_admin: userId?.map(e => e.is_admin).toString(),
         })
     }, [userId])
 
@@ -40,7 +32,7 @@ export default function ClientBaned() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        dispatch(updateUser(input))
+        dispatch(updateUser(id, input))
         alert("Recipe Created")
         setInput({
             is_banned: ""
@@ -53,40 +45,33 @@ export default function ClientBaned() {
             <form onSubmit={(e) => handleSubmit(e)} >
                 <div className="">
                     <div className="">
-                        <label className="">
-                            Name
-                        </label>
-                        <input value={input.name} name="name" type="text" onChange={(e) => handleInputChange(e)} />
-                    </div>
-                    <div className="">
-                        <label className="">
-                            Username
-                        </label>
-                        <input value={input.username} name="username" type="text" placeholder="Doe" readOnly onChange={(e) => handleInputChange(e)} />
-                    </div>
-                </div>
-                <div className="">
-                    <div className="">
-                        <label className="">
-                            Email
-                        </label>
-                        <input value={input.email} name="email" type="text" readOnly onChange={(e) => handleInputChange(e)} />
-                    </div>
-                </div>
-                <div className="">
-                    <div className="">
                         <label className="" >
                             Ban
                         </label>
                         <div className="">
                             <select value={input.is_banned} name="is_banned" onChange={(e) => handleInputChange(e)}>
-                                <option>true</option>
+                                <option>isBaned</option>
                                 <option>false</option>
+                                <option>true</option>
                             </select>
                         </div>
-
                     </div>
                 </div>
+                <div>
+                    <div className="">
+                        <label className="" >
+                            ADMIN
+                        </label>
+                        <div className="">
+                            <select value={input.is_admin} name="is_admin" onChange={(e) => handleInputChange(e)}>
+                                <option>isAdmin</option>
+                                <option>false</option>
+                                <option>true</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
                 <button type="submit" className="" >Actualizar</button>
             </form>
         </div >

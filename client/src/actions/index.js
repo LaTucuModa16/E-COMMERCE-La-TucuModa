@@ -128,4 +128,12 @@ export function getUserByUsername(username) {
   }
 }
 
-
+export function getSales() {
+  return async function (dispatch) {
+    let json = await axios.get("http://localhost:3001/sales", {});
+    return dispatch({
+      type: "GET_SALES",
+      payload: json.data,
+    });
+  };
+}
