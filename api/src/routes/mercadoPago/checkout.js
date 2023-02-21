@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
       },
     ],
     back_urls: {
-      success: "https://latucumoda-backend.onrender.com/success",
+      success: "https://latucumoda.netlify.app/home",
       failure: "",
       pending: "",
     },
