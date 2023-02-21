@@ -1,3 +1,7 @@
-input[type="checkbox"].toggle{
-    display: none;
+.colorLetras {
+    color: white;
+}
+
+.backgroundClient {
+    background-color: aqua;
 }

@@ -18,7 +18,7 @@ export default function Login() {
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
 
     return (
-        <div className="container">
+        <div className="containerL">
             <MainContainer>
                 <Formik
                     initialValues={
