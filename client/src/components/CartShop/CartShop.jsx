@@ -39,7 +39,7 @@ export default function CartShop() {
       data
     );
     if (res.status === 200) {
-      window.open(res.data, "_blank");
+      window.open(res.init_point, "_blank");
     }
   };
 
