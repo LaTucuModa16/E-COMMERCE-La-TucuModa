@@ -19,6 +19,7 @@ import Sales from "./components/DashBoard/Pages/Sales/Sales";
 import Clients from "./components/DashBoard/Pages/Clients/Clients";
 import ClientBaned from "./components/DashBoard/Pages/Clients/ClientBaned";
 import Switch from "./components/DashBoard/Pages/Clients/Switch/Switch";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,25 +37,27 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div>
-        <Routes>
-          <Route exact path="/" element={<LandingPage />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/detail/:id" element={<Detail />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/cart" element={<CartShop />} />
-          <Route path="/form" element={<CreateForm />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/auth0Register" element={<RegisterAuth0 />} />
-          <Route path="/dashboard" element={<DashBoard />} />
-          <Route path="/dash" element={<HomeDash />} />
-          <Route path="/sales" element={<Sales />} />
-          <Route path="/clients" element={<Clients />} />
-          <Route path="/users/:id" element={<ClientBaned />} />
-        </Routes>
-      </div>
+      <GoogleOAuthProvider clientId="803452278326-q51gablo3nqqfj9dasu2o4g8d2dsmhhb.apps.googleusercontent.com">
+        <div>
+          <Routes>
+            <Route exact path="/" element={<LandingPage />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/detail/:id" element={<Detail />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/cart" element={<CartShop />} />
+            <Route path="/form" element={<CreateForm />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/auth0Register" element={<RegisterAuth0 />} />
+            <Route path="/dashboard" element={<DashBoard />} />
+            <Route path="/dash" element={<HomeDash />} />
+            <Route path="/sales" element={<Sales />} />
+            <Route path="/clients" element={<Clients />} />
+            <Route path="/users/:id" element={<ClientBaned />} />
+          </Routes>
+        </div>
+      </GoogleOAuthProvider>
     </BrowserRouter>
   );
 }
