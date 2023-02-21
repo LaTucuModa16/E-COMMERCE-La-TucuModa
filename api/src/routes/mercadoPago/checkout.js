@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
       },
     ],
     back_urls: {
-      success: "https://localhost:3001/success",
+      success: "https://latucumoda-backend.onrender.com/success",
       failure: "",
       pending: "",
     },
