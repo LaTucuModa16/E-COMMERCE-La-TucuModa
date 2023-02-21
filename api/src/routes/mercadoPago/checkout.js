@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
   await mercadopago.preferences
     .create(preference)
     .then(function (response) {
-      res.json(response.body.init_point);
+      res.json(response.response.init_point);
     })
     .catch(function (error) {
       console.log(error);
