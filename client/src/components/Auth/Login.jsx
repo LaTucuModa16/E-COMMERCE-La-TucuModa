@@ -159,7 +159,7 @@ export default function Login() {
           )}
         </Formik>
         <div className="mt-4">
-          <button onClick={() => googleLogin()}>Conectate a esta</button>
+          <button onClick={() => googleLogin()}>Conectate con Google</button>
         </div>
       </MainContainer>
     </div>
