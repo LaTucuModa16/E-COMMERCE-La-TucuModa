@@ -35,6 +35,7 @@ export default function CartShop() {
       unit_price: total,
     };
     const res = await axios.post("http://localhost:3001/mercadopago", data);
+    console.log(res);
     if (res.status === 200) {
       window.open(res.data, "_blank");
     }

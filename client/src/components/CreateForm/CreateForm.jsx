@@ -14,10 +14,9 @@ function CreateForm() {
   const sizes = ["XS", "S", "M", "L", "XL"];
 
   const setImg = (url) => {
-    setNewProduct({ ...newProduct, img: url })
-    console.log(url)
-  }
-
+    setNewProduct({ ...newProduct, img: url });
+    console.log(url);
+  };
 
   const [newProduct, setNewProduct] = useState({
     name: "",
@@ -184,7 +183,7 @@ function CreateForm() {
 
   useEffect(() => {
     console.log(newProduct);
-  }, [newProduct])
+  }, [newProduct]);
 
   return (
     <>
@@ -245,9 +244,7 @@ function CreateForm() {
               />
             </div>
             <hr />
-            <UploadImage
-              setImg={setImg}
-            />
+            <UploadImage setImg={setImg} />
             <hr />
             <div className="row my-2">
               <label className="col-sm-4 d-flex justify-content-center">
@@ -276,6 +273,15 @@ function CreateForm() {
                   <button onClick={handleSubmitColor}>Agregar color</button>
                 </div>
               </div>
+              {newProduct.colour.map((color, index) => (
+                <span
+                  key={index}
+                  className="badge bg-secondary mx-1"
+                  style={{ color: "white" }}
+                >
+                  {color}
+                </span>
+              ))}
             </div>
             <hr />
             <div className="row my-2">
@@ -321,6 +327,15 @@ function CreateForm() {
                     <button onClick={handleSubmitFabric}>Agregar tela</button>
                   </div>
                 </div>
+                {newProduct.fabric.map((fabric, index) => (
+                  <span
+                    key={index}
+                    className="badge bg-secondary mx-1"
+                    style={{ color: "white" }}
+                  >
+                    {fabric}
+                  </span>
+                ))}
               </div>
               <hr />
               <div className="row my-2">

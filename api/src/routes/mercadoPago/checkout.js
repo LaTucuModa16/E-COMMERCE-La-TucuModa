@@ -26,8 +26,8 @@ router.post("/", async (req, res) => {
       },
     ],
     back_urls: {
-      success: "https://localhost:3001/success",
-      failure: "",
+      success: "https://localhost:3001/home",
+      failure: "https://localhost:3001/cart",
       pending: "",
     },
     auto_return: "approved",

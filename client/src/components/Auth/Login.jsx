@@ -9,6 +9,7 @@ import { MainContainer, WelcomeText, ButtonStyled } from "./StyledLogin";
 import "./Login.css";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+import NavBar from "../NavBar/Navbar.jsx";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ export default function Login() {
     img: "",
   };
 
-  const allEmail = users.map((e) => e.email);
+  const allEmail = users.length ? users.map((e) => e.email) : [];
 
   const googleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
@@ -73,96 +74,99 @@ export default function Login() {
   }, []);
 
   return (
-    <div className="containerL">
-      <MainContainer>
-        <Formik
-          initialValues={{
-            email: "",
-            password: "",
-          }}
-          validate={(valores) => {
-            let errores = {};
+    <>
+      <NavBar />
+      <div className="containerL">
+        <MainContainer>
+          <Formik
+            initialValues={{
+              email: "",
+              password: "",
+            }}
+            validate={(valores) => {
+              let errores = {};
 
-            //Validation Email
-            if (!valores.email) {
-              errores.email = "*Please enter the email";
-            } else if (
-              !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
-                valores.email
-              )
-            ) {
-              errores.email = "*Invalid email";
-            }
-            //Validation Password
-            if (!valores.password) {
-              errores.password = "*Please enter the password";
-            }
-            return errores;
-          }}
-          onSubmit={(valores, { resetForm }) => {
-            dispatch(LoginUser(valores));
-            resetForm();
-            console.log("Formulario enviado");
-            cambiarFormularioEnviado(true);
-            setTimeout(() => cambiarFormularioEnviado(false), 5000);
-            navigate("/home");
-          }}
-        >
-          {({ errors, isValid, dirty }) => (
-            <div className="containerForm">
-              <Form>
-                <WelcomeText>WELCOME</WelcomeText>
-                <div className="form">
-                  <div>
-                    <Field
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="Email"
-                      className="inputContainer"
-                    />
-                    <ErrorMessage
-                      name="email"
-                      component={() => (
-                        <div className="error">{errors.email}</div>
-                      )}
-                    />
+              //Validation Email
+              if (!valores.email) {
+                errores.email = "*Please enter the email";
+              } else if (
+                !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
+                  valores.email
+                )
+              ) {
+                errores.email = "*Invalid email";
+              }
+              //Validation Password
+              if (!valores.password) {
+                errores.password = "*Please enter the password";
+              }
+              return errores;
+            }}
+            onSubmit={(valores, { resetForm }) => {
+              dispatch(LoginUser(valores));
+              resetForm();
+              console.log("Formulario enviado");
+              cambiarFormularioEnviado(true);
+              setTimeout(() => cambiarFormularioEnviado(false), 5000);
+              navigate("/home");
+            }}
+          >
+            {({ errors, isValid, dirty }) => (
+              <div className="containerForm">
+                <Form>
+                  <WelcomeText>Bienvenido</WelcomeText>
+                  <div className="form">
+                    <div>
+                      <Field
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
+                        className="inputContainer"
+                      />
+                      <ErrorMessage
+                        name="email"
+                        component={() => (
+                          <div className="error">{errors.email}</div>
+                        )}
+                      />
+                    </div>
+                    <div className="containerPassword">
+                      <Field
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        className="inputContainer"
+                      />
+                      <ErrorMessage
+                        name="password"
+                        component={() => (
+                          <div className="error">{errors.password}</div>
+                        )}
+                      />
+                    </div>
+                    <div className="containerButton">
+                      <ButtonStyled
+                        type="submit"
+                        onClick={showToast}
+                        disabled={!(isValid && dirty)}
+                      >
+                        Ingresa
+                      </ButtonStyled>
+                    </div>
+                    <ToastContainer position="top-right" />
                   </div>
-                  <div className="containerPassword">
-                    <Field
-                      type="password"
-                      id="password"
-                      name="password"
-                      placeholder="Password"
-                      className="inputContainer"
-                    />
-                    <ErrorMessage
-                      name="password"
-                      component={() => (
-                        <div className="error">{errors.password}</div>
-                      )}
-                    />
-                  </div>
-                  <div className="containerButton">
-                    <ButtonStyled
-                      type="submit"
-                      onClick={showToast}
-                      disabled={!(isValid && dirty)}
-                    >
-                      Sing In
-                    </ButtonStyled>
-                  </div>
-                  <ToastContainer position="top-right" />
-                </div>
-              </Form>
-            </div>
-          )}
-        </Formik>
-        <div className="mt-4">
-          <button onClick={() => googleLogin()}>Conectate a esta</button>
-        </div>
-      </MainContainer>
-    </div>
+                </Form>
+              </div>
+            )}
+          </Formik>
+          <div className="mt-4">
+            <button onClick={() => googleLogin()}>Conectate con google</button>
+          </div>
+        </MainContainer>
+      </div>
+    </>
   );
 }
 

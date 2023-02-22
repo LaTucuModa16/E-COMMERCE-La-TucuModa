@@ -16,37 +16,11 @@ function OffcanvasExample() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
-  console.log(user, "useeeer");
 
   const handleDeleteUser = () => {
     dispatch(deleteUser());
     dispatch(setCart([]));
   };
-
-  // let input = {
-  //   username: '',
-  //   name: '',
-  //   last_name: '',
-  //   email: ''
-  // }
-
-  // const { loginWithRedirect, isAuthenticated, logout, user} = useAuth0();
-  // console.log(useAuth0())
-
-  // user ? input = {
-  //   username: user.nickname,
-  //   name: user.given_name,
-  //   last_name: user.family_name,
-  //   email: user.email
-  // } : <span></span>
-
-  // const register = () => {
-  //   isAuthenticated ? dispatch(registerUser(input)) : <span></span>
-  // };
-
-  // useEffect(() => {
-  //   register();
-  // }, [])
 
   return (
     <>
@@ -100,14 +74,14 @@ function OffcanvasExample() {
                       onClick={() => handleDeleteUser()}
                       className="mx-3"
                     >
-                      Sign Out
+                      Cerrar sesión de {user.name}
                     </Nav.Link>
                   ) : (
                     <Nav.Link
                       onClick={() => navigate("/login")}
                       className="mx-3"
                     >
-                      Sign In
+                      Ingresá aquí
                     </Nav.Link>
                   )}
                 </Nav>

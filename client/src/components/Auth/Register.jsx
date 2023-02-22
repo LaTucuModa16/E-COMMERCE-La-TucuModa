@@ -36,7 +36,7 @@ export default function Register() {
   }, [dispatch]);
   return (
     <div>
-      {/* <NavBar /> */}
+      <NavBar />
       <div className="fondoReg">
         <div className="formCont ">
           <form onSubmit={handleSubmit(onSubmit)}>
