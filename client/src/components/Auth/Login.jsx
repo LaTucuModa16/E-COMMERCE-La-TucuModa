@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { LoginUser, registerUser, getUsers } from "../../actions";
+import { LoginUser, registerUser, getUsers, setCart } from "../../actions";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { MainContainer, WelcomeText, ButtonStyled } from "./StyledLogin";
-// import { GoogleLogin } from "react-google-login";
 import "./Login.css";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
@@ -32,6 +31,7 @@ export default function Login() {
 
   const googleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
+      localStorage.setItem("accessToken", tokenResponse.access_token);
       const userInfo = await axios
         .get("https://www.googleapis.com/oauth2/v3/userinfo", {
           headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
@@ -50,6 +50,8 @@ export default function Login() {
       email: userInfo.email,
       img: userInfo.picture,
     };
+    const cartLS = JSON.parse(localStorage.getItem(`cart${userInfo.email}`));
+    dispatch(setCart(cartLS));
     if (!allEmail.includes(obj.email))
       return dispatch(registerUser(obj))
         .then((res) =>

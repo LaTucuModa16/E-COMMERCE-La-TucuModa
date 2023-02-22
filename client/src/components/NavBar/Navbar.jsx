@@ -7,11 +7,10 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 import { useDispatch } from "react-redux";
-import { /*registerUser*/ deleteUser } from "../../actions/index.js";
+import { /*registerUser*/ deleteUser, setCart } from "../../actions/index.js";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import FormHome from "../FormHome/FormHome";
 import { useNavigate } from "react-router";
-import { useAuth0 } from "@auth0/auth0-react";
 
 function OffcanvasExample() {
   const dispatch = useDispatch();
@@ -21,6 +20,7 @@ function OffcanvasExample() {
 
   const handleDeleteUser = () => {
     dispatch(deleteUser());
+    dispatch(setCart([]));
   };
 
   // let input = {
@@ -68,6 +68,15 @@ function OffcanvasExample() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
+                  {Object.entries(user).length > 0 && user.is_admin === true ? (
+                    <Nav.Link
+                      onClick={() => navigate("/dashboard")}
+                      className="mx-3"
+                    >
+                      Dashboard
+                    </Nav.Link>
+                  ) : null}
+
                   <Nav.Link onClick={() => navigate("/about")} className="mx-3">
                     Sobre Nosotros
                   </Nav.Link>
