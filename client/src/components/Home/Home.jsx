@@ -8,6 +8,7 @@ import Paginado from "../Paginado/Paginado";
 import FormHome from "../FormHome/FormHome";
 import SearchBar from "../SeaarchBar/SearchBar";
 import "./Home.css";
+import Slide from "../Slide/Slide";
 
 export default function Home() {
   const allProducts = useSelector((state) => state.products);
@@ -60,13 +61,14 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-
+      <Slide />
       {/* seccion mas alta */}
       <div className="d-flex justify-content-between p-2">
         <SearchBar
           setFlagRefresh_={setFlagRefresh_}
           setCurrentPage={setCurrentPage}
         />
+
         {Object.entries(user).length > 0 ? (
           <Link to="/cart">
             <button className="sinefec mx-3">
@@ -74,6 +76,7 @@ export default function Home() {
             </button>
           </Link>
         ) : null}
+
       </div>
 
       {/* seccion stock */}

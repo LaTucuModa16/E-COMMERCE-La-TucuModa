@@ -5,6 +5,7 @@ import { getProducts, getCategories } from "../../actions";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 import NavBarDash from "../DashBoard/NavBarDash/NavBarDash";
+import UploadImage from "./Cloudinary/Cloudinary";
 
 function CreateForm() {
   const allCategories = useSelector((state) => state.categories);
@@ -12,12 +13,18 @@ function CreateForm() {
   const [error, setError] = useState(null);
   const sizes = ["XS", "S", "M", "L", "XL"];
 
+  const setImg = (url) => {
+    setNewProduct({ ...newProduct, img: url })
+    console.log(url)
+  }
+
+
   const [newProduct, setNewProduct] = useState({
     name: "",
     stock: "",
     price: "",
     description: "",
-    img: "https://i.pinimg.com/474x/6c/f5/be/6cf5be64dd743079b96614981254aef7.jpg",
+    img: "",
     brand: "",
     colour: [],
     size: [],
@@ -175,6 +182,10 @@ function CreateForm() {
     dispatch(getCategories());
   }, []);
 
+  useEffect(() => {
+    console.log(newProduct);
+  }, [newProduct])
+
   return (
     <>
       <NavBarDash />
@@ -233,6 +244,10 @@ function CreateForm() {
                 name="description"
               />
             </div>
+            <hr />
+            <UploadImage
+              setImg={setImg}
+            />
             <hr />
             <div className="row my-2">
               <label className="col-sm-4 d-flex justify-content-center">

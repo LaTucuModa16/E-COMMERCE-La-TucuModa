@@ -1,9 +1,28 @@
 const { use } = require('../app.js');
 const { User } = require('../db.js');
+const jsonUser = require("./JSON/JsonOfUser");
 
 const getUsers = async () => {
 	try {
 		const users = await User.findAll();
+		if (users.length === 0) {
+			try {
+				jsonUser.map(async (e) => {
+					await User.create({
+						username: e.username,
+						name: e.name,
+						last_name: e.last_name,
+						email: e.email,
+						password: e.password,
+						img: e.img,
+						is_admin: e.is_admin
+					});
+				})
+				return console.log("BD de User completada")
+			} catch (error) {
+				console.log(error)
+			}
+		}
 
 		const result = await users.map(e => {
 			return {

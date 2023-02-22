@@ -95,6 +95,7 @@ export default function Card_({ product }) {
         <Link key={product.id} to={"/detail/" + product.id}>
           <Button variant="dark">Ver detalles</Button>
         </Link>
+        
         {Object.entries(user).length > 0 ? (
           added === 0 ? (
             <button className="sinefec mx-3" onClick={addProduct}>
@@ -126,6 +127,7 @@ export default function Card_({ product }) {
             </div>
           )
         ) : null}
+
 
         <ToastContainer
           position="top-right"

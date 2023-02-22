@@ -6,6 +6,7 @@ import NavBarDash from "../../NavBarDash/NavBarDash";
 import "./Clients.css";
 
 export default function Clients() {
+
   const dispatch = useDispatch();
   const allUser = useSelector((state) => state.users);
   const userId = useSelector((state) => state.userr);
@@ -15,24 +16,27 @@ export default function Clients() {
   const [username, setUsername] = useState("");
   const [baned, setBaned] = useState("");
 
-  useEffect(() => {
-    dispatch(getUsers());
-  }, [dispatch]);
+
+    useEffect(() => {
+        dispatch(getUsers());
+    }, [dispatch]);
+
 
   function handleInputSearch(e) {
     e.preventDefault();
     setUsername(e.target.value);
   }
 
-  function handleSubmitSearch(e) {
-    e.preventDefault();
-    if (username) {
-      dispatch(getUserByUsername(username));
-      console.log(username);
-    } else {
-      alert("Username invalid");
+
+    function handleSubmitSearch(e) {
+        e.preventDefault();
+        if (username) {
+            dispatch(getUserByUsername(username));
+            console.log(username);
+        } else {
+            alert("Username invalid");
+        }
     }
-  }
 
   function handleSubmitSearch(e) {
     e.preventDefault();
