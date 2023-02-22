@@ -5,6 +5,7 @@ import { getProducts, getCategories } from "../../actions";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 import NavBarDash from "../DashBoard/NavBarDash/NavBarDash";
+import UploadImage from "./Cloudinary/Cloudinary";
 
 function CreateForm() {
   const allCategories = useSelector((state) => state.categories);
@@ -12,12 +13,18 @@ function CreateForm() {
   const [error, setError] = useState(null);
   const sizes = ["XS", "S", "M", "L", "XL"];
 
+  const setImg = (url) => {
+    setNewProduct({ ...newProduct, img: url })
+    console.log(url)
+  }
+
+
   const [newProduct, setNewProduct] = useState({
     name: "",
     stock: "",
     price: "",
     description: "",
-    img: "https://i.pinimg.com/474x/6c/f5/be/6cf5be64dd743079b96614981254aef7.jpg",
+    img: "",
     brand: "",
     colour: [],
     size: [],
@@ -32,6 +39,7 @@ function CreateForm() {
   };
 
   const handleSubmitColor = () => {
+    console.log("color agregado");
     setNewProduct((prevState) => ({
       ...prevState,
       colour: [...prevState.colour, colourInput],
@@ -45,10 +53,11 @@ function CreateForm() {
     setFabricInput(event.target.value);
   };
 
-  const handleSubmitFabric = (event) => {
+  const handleSubmitFabric = () => {
+    console.log("tela agregada");
     setNewProduct({
       ...newProduct,
-      fabric: [...newProduct, fabricInput],
+      fabric: [...newProduct.fabric, fabricInput],
     });
     setFabricInput("");
   };
@@ -131,7 +140,7 @@ function CreateForm() {
       setError("Seleccione al menos una talla");
       return false;
     }
-    if (newProduct.fabric) {
+    if (newProduct.fabric.length < 1) {
       setError("Seleccione una opción");
       return false;
     }
@@ -147,7 +156,7 @@ function CreateForm() {
     console.log("========> submit");
     if (validate()) {
       console.log("========> validate");
-
+      console.log(newProduct);
       try {
         console.log("post");
         const res = await axios.post(
@@ -173,6 +182,10 @@ function CreateForm() {
     dispatch(getCategories());
   }, []);
 
+  useEffect(() => {
+    console.log(newProduct);
+  }, [newProduct])
+
   return (
     <>
       <NavBarDash />
@@ -185,11 +198,11 @@ function CreateForm() {
         <div>
           <div className="container">
             <div className="row  my-2">
-              <label class="col-sm-4 d-flex justify-content-center">
+              <label className="col-sm-4 d-flex justify-content-center">
                 Nombre
               </label>
               <input
-                class="col-sm-6"
+                className="col-sm-6"
                 onChange={changeProduct}
                 type="text"
                 name="name"
@@ -197,11 +210,11 @@ function CreateForm() {
             </div>
             <hr />
             <div className="row my-2">
-              <label class="col-sm-4 d-flex justify-content-center">
+              <label className="col-sm-4 d-flex justify-content-center">
                 Stock
               </label>
               <input
-                class="col-sm-6"
+                className="col-sm-6"
                 onChange={changeProduct}
                 type="number"
                 name="stock"
@@ -209,11 +222,11 @@ function CreateForm() {
             </div>
             <hr />
             <div className="row my-2">
-              <label class="col-sm-4 d-flex justify-content-center">
+              <label className="col-sm-4 d-flex justify-content-center">
                 Precio
               </label>
               <input
-                class="col-sm-6"
+                className="col-sm-6"
                 onChange={changeProduct}
                 type="number"
                 name="price"
@@ -221,23 +234,27 @@ function CreateForm() {
             </div>
             <hr />
             <div className="row my-2">
-              <label class="col-sm-4 d-flex justify-content-center">
+              <label className="col-sm-4 d-flex justify-content-center">
                 Descripción
               </label>
               <input
-                class="col-sm-6"
+                className="col-sm-6"
                 onChange={changeProduct}
                 type="text"
                 name="description"
               />
             </div>
             <hr />
+            <UploadImage
+              setImg={setImg}
+            />
+            <hr />
             <div className="row my-2">
-              <label class="col-sm-4 d-flex justify-content-center">
+              <label className="col-sm-4 d-flex justify-content-center">
                 Marca
               </label>
               <input
-                class="col-sm-6"
+                className="col-sm-6"
                 onChange={changeProduct}
                 type="text"
                 name="brand"
@@ -245,7 +262,7 @@ function CreateForm() {
             </div>
             <hr />
             <div className="row my-2">
-              <label class="col-sm-4 d-flex justify-content-center">
+              <label className="col-sm-4 d-flex justify-content-center">
                 Color
               </label>
               <div className="col-sm-8 d-flex justify-content-center">
@@ -262,13 +279,13 @@ function CreateForm() {
             </div>
             <hr />
             <div className="row my-2">
-              <label class="col-sm-4 d-flex justify-content-center">
+              <label className="col-sm-4 d-flex justify-content-center">
                 Talle
               </label>
 
               <div className="col-sm-8 d-flex align-items-center mb-3">
-                {sizes.map((size) => (
-                  <>
+                {sizes.map((size, pos) => (
+                  <div key={pos}>
                     <Button
                       size="sm"
                       className="mx-1"
@@ -285,12 +302,12 @@ function CreateForm() {
                     >
                       {size}
                     </Button>
-                  </>
+                  </div>
                 ))}
               </div>
               <hr />
               <div className="row my-2">
-                <label class="col-sm-4 d-flex justify-content-center">
+                <label className="col-sm-4 d-flex justify-content-center">
                   Tela
                 </label>
                 <div className="col-sm-8 d-flex justify-content-center">
@@ -307,12 +324,12 @@ function CreateForm() {
               </div>
               <hr />
               <div className="row my-2">
-                <label class="col-sm-4 d-flex justify-content-center">
+                <label className="col-sm-4 d-flex justify-content-center">
                   Categoría
                 </label>
                 <div className="col-sm-8 d-flex  align-items-center mb-3">
-                  {allCategories?.map((categorie) => (
-                    <>
+                  {allCategories?.map((categorie, pos) => (
+                    <div key={pos}>
                       <Button
                         size="sm"
                         className="mx-1"
@@ -325,7 +342,7 @@ function CreateForm() {
                       >
                         {categorie}
                       </Button>
-                    </>
+                    </div>
                   ))}
                 </div>
               </div>

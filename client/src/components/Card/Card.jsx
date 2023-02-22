@@ -94,7 +94,7 @@ export default function Card_({ product }) {
         </Link>
         {added === 0 ? (
           <button className="sinefec mx-3" onClick={addProduct}>
-            <i className="fa-solid fa-cart-shopping fa-xl"></i>
+            <i className="fa-solid fa-cart-shopping fa-xl p-3"></i>
           </button>
         ) : (
           <div className="">

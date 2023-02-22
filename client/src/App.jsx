@@ -19,6 +19,9 @@ import Sales from "./components/DashBoard/Pages/Sales/Sales";
 import Clients from "./components/DashBoard/Pages/Clients/Clients";
 import ClientBaned from "./components/DashBoard/Pages/Clients/ClientBaned";
 import Switch from "./components/DashBoard/Pages/Clients/Switch/Switch";
+import UploadImage from "./components/CreateForm/Cloudinary/Cloudinary";
+import Slide from "./components/Slide/Slide";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -53,6 +56,8 @@ function App() {
           <Route path="/sales" element={<Sales />} />
           <Route path="/clients" element={<Clients />} />
           <Route path="/users/:id" element={<ClientBaned />} />
+          <Route path="/cloudinary" element={<UploadImage />} />
+          <Route path="/slide" element={<Slide />} />
         </Routes>
       </div>
     </BrowserRouter>

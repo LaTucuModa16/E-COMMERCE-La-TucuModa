@@ -18,7 +18,7 @@ function Detail(props) {
     getProducts(id);
   }, [id]);
 
-  useEffect(() => {}, [products]);
+  useEffect(() => { }, [products]);
   return (
     <div>
       <Navbar_ />
@@ -26,27 +26,40 @@ function Detail(props) {
         <button>Ir a la página Home</button>
       </Link>
       {products && products !== "No existe este producto" ? (
-        <div className="detailPokemon2">
-          <h1>{products[0].name}</h1>
-          <img
-            src={products[0].img}
-            alt="No img found"
-            width="250px"
-            height="250px"
-          />
-          <h6>{products[0].description}</h6>
-          <div>
-            {products[0].colour.map((p) => {
-              return <h4>{p}</h4>;
-            })}
+        <div className="container">
+          <div className="card">
+            <h1
+              className="category"
+            >{products[0].name}</h1>
+            <img
+              className="card-image"
+              src={products[0].img}
+              alt="No img found"
+              width="250px"
+              height="250px"
+            />
+            <h6 className="container text-center">{products[0].description}</h6>
+            <div className="container text-center">
+              <div className="row">
+                <div className="col">
+                  <h3>Color:</h3>
+                  {products[0].colour.map((p) => {
+                    return <h4>{p}</h4>;
+                  })}
+                </div>
+                <div className="col text-center">
+                  <h3>Talle:</h3>
+                  <div className="d-flex">
+                    {products[0].size.map((p) => {
+                      return <h4 className="mx-2 ">{p}</h4>;
+                    })}
+                  </div>
+                </div>
+                <h2 >${products[0].price}</h2>
+                <h3>Stock: {products[0].stock}</h3>
+              </div>
+            </div>
           </div>
-          <div>
-            {products[0].size.map((p) => {
-              return <h4>{p}</h4>;
-            })}
-          </div>
-          <h2>${products[0].price}.-</h2>
-          <h3>Stock: {products[0].stock}</h3>
         </div>
       ) : (
         <h3>No se pudo cargar el producto</h3>

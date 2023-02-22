@@ -8,6 +8,7 @@ import Paginado from "../Paginado/Paginado";
 import FormHome from "../FormHome/FormHome";
 import SearchBar from "../SeaarchBar/SearchBar";
 import "./Home.css";
+import Slide from "../Slide/Slide";
 
 export default function Home() {
   const allProducts = useSelector((state) => state.products);
@@ -60,7 +61,7 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-
+      <Slide />
       {/* seccion mas alta */}
       <div className="d-flex justify-content-between p-2">
         <SearchBar
@@ -69,7 +70,7 @@ export default function Home() {
         />
         <Link to="/cart">
           <button className="sinefec mx-3">
-            <i className="fa-solid fa-cart-shopping fa-xl"></i>
+            <i className="fa-solid fa-cart-shopping fa-xl p-4"></i>
           </button>
         </Link>
       </div>
