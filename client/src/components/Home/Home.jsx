@@ -22,7 +22,7 @@ export default function Home() {
     indexOfFirsttProducts,
     indexOfLastProducts
   );
-
+  const user = useSelector((state) => state.user);
   // states para refrescar
   const [show, setShow] = useState(true);
   const [flagRefresh, setFlagRefresh] = useState(false);
@@ -68,11 +68,15 @@ export default function Home() {
           setFlagRefresh_={setFlagRefresh_}
           setCurrentPage={setCurrentPage}
         />
-        <Link to="/cart">
-          <button className="sinefec mx-3">
-            <i className="fa-solid fa-cart-shopping fa-xl p-4"></i>
-          </button>
-        </Link>
+
+        {Object.entries(user).length > 0 ? (
+          <Link to="/cart">
+            <button className="sinefec mx-3">
+              <i className="fa-solid fa-cart-shopping fa-xl"></i>
+            </button>
+          </Link>
+        ) : null}
+
       </div>
 
       {/* seccion stock */}

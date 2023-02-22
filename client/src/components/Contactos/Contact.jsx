@@ -12,7 +12,7 @@ export default function Contact() {
         <button>Ir a la página Home</button>
       </Link>
       <div className="container my-4">
-        <h1 class="display-4 text-center mb-4">Contactanos</h1>
+        <h1 className="display-4 text-center mb-4">Contactanos</h1>
         <div className="row">
           <div className="col-sm-12 col-md-6">
             <h4 className="text-uppercase">La Tucumoda</h4>
@@ -58,7 +58,7 @@ export default function Contact() {
                   Desea recibir nuestras novedades
                 </InputGroup.Text>
               </InputGroup>
-              <button type="sunbmit" class="btn btn-warning">
+              <button type="sunbmit" className="btn btn-warning">
                 Enviar
               </button>
             </form>

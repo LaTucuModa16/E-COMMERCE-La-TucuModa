@@ -55,6 +55,36 @@ export function LoginUser(payload) {
     }
   };
 }
+
+export const loginGoogleUser = (payload) => async (dispatch) => {
+  try {
+    const userInfo = await axios
+      .get("https://www.googleapis.com/oauth2/v3/userinfo", {
+        headers: { Authorization: `Bearer ${payload}` },
+      })
+      .then((res) => res.data);
+
+    const obj = {
+      name: userInfo.given_name,
+      last_name: userInfo.family_name || "",
+      email: userInfo.email,
+      img: userInfo.picture,
+    };
+
+    dispatch({
+      type: "LOGIN",
+      payload: obj,
+    });
+    const cartLS = JSON.parse(localStorage.getItem(`cart${userInfo.email}`));
+
+    if (cartLS) {
+      dispatch({ type: "SET_CART", payload: cartLS });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export function registerUser(payload) {
   // console.log(payload, 'payload')
   return async function (dispatch) {
@@ -68,20 +98,21 @@ export function registerUser(payload) {
 
 export function getUsers() {
   return async function (dispatch) {
-    const json = await axios.get('http://localhost:3001/users');
+    const json = await axios.get("http://localhost:3001/users");
     return dispatch({
-      type: 'GET_USERS',
-      payload: json.data
+      type: "GET_USERS",
+      payload: json.data,
     });
   };
-};
+}
 
 export function deleteUser() {
-    return {
-      type: 'DELETE_USER',
-      payload: {}
-    };
-};
+  localStorage.removeItem("accessToken");
+  return {
+    type: "DELETE_USER",
+    payload: {},
+  };
+}
 
 export function addToCart(payload) {
   return {
@@ -109,23 +140,25 @@ export function updateUser(id, payload) {
     const json = await axios.put(`http://localhost:3001/users/${id}`, payload);
     return dispatch({
       type: "UPDATE_USER",
-      payload: json.data
-    })
-  }
+      payload: json.data,
+    });
+  };
 }
 
 export function getUserByUsername(username) {
   return async function (dispatch) {
     try {
-      const json = await axios("http://localhost:3001/users?username=" + username);
+      const json = await axios(
+        "http://localhost:3001/users?username=" + username
+      );
       return dispatch({
         type: "GET_USERNAME",
-        payload: json.data
-      })
+        payload: json.data,
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 }
 
 export function getSales() {

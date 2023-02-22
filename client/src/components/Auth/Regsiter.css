@@ -1,11 +1,21 @@
+.fondoReg {
+	background-image: url('https://fondosmil.com/fondo/27475.jpg');
+	background-size: cover;
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
 .formCont {
 	border: 1px solid;
+	backdrop-filter: blur(8.5px);
 	width: 600px;
-	margin-left: 650px;
-	margin-top: 50px;
+	margin-left: 550px;
+	padding-top: 20px;
 	height: 800px;
 	border-radius: 10px;
 	box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.40);
+	/* background-image: url('https://fondosmil.com/fondo/27475.jpg');
+	background-size: cover; */
 }
 
 .title {

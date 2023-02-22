@@ -10,12 +10,15 @@ import "react-toastify/dist/ReactToastify.css";
 export default function Card_({ product }) {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
 
   const [added, setAdded] = useState(0);
 
   useEffect(() => {
     refreshAdded();
-    saveCartToLocalStorage(cart);
+    if (user.email && cart.length) {
+      saveCartToLocalStorage(cart);
+    }
   }, [cart]);
 
   useEffect(() => {
@@ -55,7 +58,7 @@ export default function Card_({ product }) {
   };
 
   const saveCartToLocalStorage = (cart) => {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem(`cart${user.email}`, JSON.stringify(cart));
   };
 
   const deteleProduct = () => {
@@ -92,35 +95,39 @@ export default function Card_({ product }) {
         <Link key={product.id} to={"/detail/" + product.id}>
           <Button variant="dark">Ver detalles</Button>
         </Link>
-        {added === 0 ? (
-          <button className="sinefec mx-3" onClick={addProduct}>
-            <i className="fa-solid fa-cart-shopping fa-xl p-3"></i>
-          </button>
-        ) : (
-          <div className="">
-            <Button
-              className=""
-              onClick={deteleProduct}
-              size="sm"
-              variant="outline-secondary"
-            >
-              -
-            </Button>
-            <p className="">{added}</p>
-            <Button
-              className=""
-              disabled={!(product.stock > added)}
-              onClick={addProduct}
-              size="sm"
-              variant="outline-secondary"
-            >
-              +
-            </Button>
-            {!(product.stock > added) ? (
-              <p className="text-muted">Producto agotado!</p>
-            ) : null}
-          </div>
-        )}
+        
+        {Object.entries(user).length > 0 ? (
+          added === 0 ? (
+            <button className="sinefec mx-3" onClick={addProduct}>
+              <i className="fa-solid fa-cart-shopping fa-xl"></i>
+            </button>
+          ) : (
+            <div className="">
+              <Button
+                className=""
+                onClick={deteleProduct}
+                size="sm"
+                variant="outline-secondary"
+              >
+                -
+              </Button>
+              <p className="">{added}</p>
+              <Button
+                className=""
+                disabled={!(product.stock > added)}
+                onClick={addProduct}
+                size="sm"
+                variant="outline-secondary"
+              >
+                +
+              </Button>
+              {!(product.stock > added) ? (
+                <p className="text-muted">Producto agotado!</p>
+              ) : null}
+            </div>
+          )
+        ) : null}
+
 
         <ToastContainer
           position="top-right"
