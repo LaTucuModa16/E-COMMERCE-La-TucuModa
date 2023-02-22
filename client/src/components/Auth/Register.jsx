@@ -38,7 +38,7 @@ export default function Register() {
     <div>
       {/* <NavBar /> */}
       <div className="fondoReg">
-        <div className="formCont">
+        <div className="formCont ">
           <form onSubmit={handleSubmit(onSubmit)}>
             <h1 className="title">Registro de Usuario</h1>
             <div className="formUsername">
