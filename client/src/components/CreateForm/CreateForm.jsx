@@ -158,7 +158,10 @@ function CreateForm() {
       console.log(newProduct);
       try {
         console.log("post");
-        const res = await axios.post(`${API_URL}/products`, newProduct);
+        const res = await axios.post(
+          `https://latucumoda-backend.onrender.com/products`,
+          newProduct
+        );
         console.log(res);
         if (res.status === 200) {
           alert("Prenda creada correctamente!");

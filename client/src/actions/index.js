@@ -16,7 +16,10 @@ export function getProducts() {
 
 export function getProductsByName(name) {
   return async function (dispatch) {
-    let json = await axios.get(`${API_URL}/products?name=${name}`, {});
+    let json = await axios.get(
+      `https://latucumoda-backend.onrender.com/products?name=${name}`,
+      {}
+    );
 
     return dispatch({
       type: "GET_PRODUCTS",
@@ -27,7 +30,10 @@ export function getProductsByName(name) {
 
 export function getCategories() {
   return async function (dispatch) {
-    let json = await axios.get(`${API_URL}/categories`, {});
+    let json = await axios.get(
+      `https://latucumoda-backend.onrender.com/categories`,
+      {}
+    );
 
     return dispatch({
       type: "GET_CATEGORIES",
@@ -45,7 +51,10 @@ export function setFilters(payload) {
 export function LoginUser(payload) {
   return async function (dispatch) {
     try {
-      let json = await axios.post(`${API_URL}/login`, payload);
+      let json = await axios.post(
+        `https://latucumoda-backend.onrender.com/login`,
+        payload
+      );
       return dispatch({
         type: "LOGIN",
         payload: json.data,
@@ -88,7 +97,10 @@ export const loginGoogleUser = (payload) => async (dispatch) => {
 export function registerUser(payload) {
   // console.log(payload, 'payload')
   return async function (dispatch) {
-    const json = await axios.post(`${API_URL}/register`, payload);
+    const json = await axios.post(
+      `https://latucumoda-backend.onrender.com/register`,
+      payload
+    );
     return dispatch({
       type: "REGISTER_USER",
       payload: json,
@@ -98,7 +110,9 @@ export function registerUser(payload) {
 
 export function getUsers() {
   return async function (dispatch) {
-    const json = await axios.get(`${API_URL}/users`);
+    const json = await axios.get(
+      `https://latucumoda-backend.onrender.com/users`
+    );
     return dispatch({
       type: "GET_USERS",
       payload: json.data,
@@ -137,7 +151,10 @@ export function setCart(payload) {
 
 export function updateUser(id, payload) {
   return async function (dispatch) {
-    const json = await axios.put(`${API_URL}/users/${id}`, payload);
+    const json = await axios.put(
+      `https://latucumoda-backend.onrender.com/users/${id}`,
+      payload
+    );
     return dispatch({
       type: "UPDATE_USER",
       payload: json.data,
@@ -148,7 +165,9 @@ export function updateUser(id, payload) {
 export function getUserByUsername(username) {
   return async function (dispatch) {
     try {
-      const json = await axios(`${API_URL}/users?username=` + username);
+      const json = await axios(
+        `https://latucumoda-backend.onrender.com/users?username=` + username
+      );
       return dispatch({
         type: "GET_USERNAME",
         payload: json.data,
@@ -161,7 +180,10 @@ export function getUserByUsername(username) {
 
 export function getSales() {
   return async function (dispatch) {
-    let json = await axios.get(`${API_URL}/sales`, {});
+    let json = await axios.get(
+      `https://latucumoda-backend.onrender.com/sales`,
+      {}
+    );
     return dispatch({
       type: "GET_SALES",
       payload: json.data,

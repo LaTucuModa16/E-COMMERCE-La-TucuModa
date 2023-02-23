@@ -11,7 +11,9 @@ function Detail(props) {
   const id = useParams().id;
 
   const getProducts = async (id) => {
-    const res = await axios.get(`${API_URL}/products/${id}`);
+    const res = await axios.get(
+      `https://latucumoda-backend.onrender.com/products/${id}`
+    );
     setProducts(res.data);
   };
 
