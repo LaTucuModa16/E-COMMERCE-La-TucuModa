@@ -10,7 +10,7 @@ require("./db.js");
 const server = express();
 
 server.name = "API";
-const allowedOrigins = ["https://latucumoda.netlify.app"];
+const allowedOrigins = ["https://latucumoda.vercel.app"];
 const corsOptions = {
   origin: function (origin, callback) {
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
