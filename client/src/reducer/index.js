@@ -47,7 +47,7 @@ function rootReducer(state = initialState, action) {
 
       let filteredProducts = [...state.backupProducts];
       if (filters.categorie !== "all") {
-        filteredProducts = filteredProducts.filter((prod) =>
+        filteredProducts = filteredProducts?.filter((prod) =>
           prod.categorie[0].name?.includes(filters.categorie)
         );
       }
