@@ -3,7 +3,10 @@ export const API_URL = process.env.API_URL || "http://localhost:3001";
 
 export function getProducts() {
   return async function (dispatch) {
-    let json = await axios.get(`${API_URL}/products`, {});
+    let json = await axios.get(
+      `https://latucumoda-backend.onrender.com/products`,
+      {}
+    );
     return dispatch({
       type: "GET_PRODUCTS",
       payload: json.data,
