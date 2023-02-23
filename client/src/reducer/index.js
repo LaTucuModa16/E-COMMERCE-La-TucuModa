@@ -10,7 +10,7 @@ const initialState = {
   users: [],
   cart: [],
   user: {},
-  userrr: []
+  userrr: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -48,7 +48,7 @@ function rootReducer(state = initialState, action) {
       let filteredProducts = [...state.backupProducts];
       if (filters.categorie !== "all") {
         filteredProducts = filteredProducts.filter((prod) =>
-          prod.categorie[0].name.includes(filters.categorie)
+          prod.categorie[0].name?.includes(filters.categorie)
         );
       }
       if (filters.brand !== "all") {
@@ -78,17 +78,17 @@ function rootReducer(state = initialState, action) {
         ...state,
       };
 
-    case "GET_USERS": 
+    case "GET_USERS":
       return {
         ...state,
-        users: action.payload
-      }
+        users: action.payload,
+      };
 
-    case 'DELETE_USER':
+    case "DELETE_USER":
       return {
         ...state,
-        user: action.payload
-      }  
+        user: action.payload,
+      };
 
     case "ADD_CART":
       const addedProduct = state.cart.find((p) => p.id === action.payload.id);
@@ -127,7 +127,6 @@ function rootReducer(state = initialState, action) {
         }
       }
 
-
     case "SET_CART":
       return {
         ...state,
@@ -136,14 +135,13 @@ function rootReducer(state = initialState, action) {
 
     case "UPDATE_USER":
       return {
-        ...state
-      }
+        ...state,
+      };
     case "GET_USERNAME":
       return {
         ...state,
-        userrr: action.payload
-      }
-
+        userrr: action.payload,
+      };
 
     default:
       return state;
