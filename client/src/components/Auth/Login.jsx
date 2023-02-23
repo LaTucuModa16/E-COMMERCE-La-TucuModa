@@ -28,7 +28,7 @@ export default function Login() {
     img: "",
   };
 
-  const allEmail = users.length ? users.map((e) => e.email) : [];
+  const allEmail = users?.length ? users.map((e) => e.email) : [];
 
   const googleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
