@@ -40,7 +40,6 @@ export function setFilters(payload) {
   };
 }
 export function LoginUser(payload) {
-  // console.log(payload, 'payload')
   return async function (dispatch) {
     try {
       let json = await axios.post(`${API_URL}/login`, payload);
