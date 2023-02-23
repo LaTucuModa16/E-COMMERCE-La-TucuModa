@@ -4,13 +4,14 @@ import Navbar_ from "../NavBar/Navbar";
 import axios from "axios";
 import "./Detail.css";
 import { Link } from "react-router-dom";
+import { API_URL } from "../../actions";
 
 function Detail(props) {
   const [products, setProducts] = useState(null);
   const id = useParams().id;
 
   const getProducts = async (id) => {
-    const res = await axios.get(`http://localhost:3001/products/${id}`);
+    const res = await axios.get(`${API_URL}/products/${id}`);
     setProducts(res.data);
   };
 
@@ -18,7 +19,7 @@ function Detail(props) {
     getProducts(id);
   }, [id]);
 
-  useEffect(() => { }, [products]);
+  useEffect(() => {}, [products]);
   return (
     <div>
       <Navbar_ />
@@ -28,9 +29,7 @@ function Detail(props) {
       {products && products !== "No existe este producto" ? (
         <div className="container">
           <div className="card">
-            <h1
-              className="category"
-            >{products[0].name}</h1>
+            <h1 className="category">{products[0].name}</h1>
             <img
               className="card-image"
               src={products[0].img}
@@ -55,7 +54,7 @@ function Detail(props) {
                     })}
                   </div>
                 </div>
-                <h2 >${products[0].price}</h2>
+                <h2>${products[0].price}</h2>
                 <h3>Stock: {products[0].stock}</h3>
               </div>
             </div>

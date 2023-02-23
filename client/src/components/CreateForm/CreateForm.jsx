@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../NavBar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts, getCategories } from "../../actions";
+import { getProducts, getCategories, API_URL } from "../../actions";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 import NavBarDash from "../DashBoard/NavBarDash/NavBarDash";
@@ -158,10 +158,7 @@ function CreateForm() {
       console.log(newProduct);
       try {
         console.log("post");
-        const res = await axios.post(
-          "http://localhost:3001/products",
-          newProduct
-        );
+        const res = await axios.post(`${API_URL}/products`, newProduct);
         console.log(res);
         if (res.status === 200) {
           alert("Prenda creada correctamente!");

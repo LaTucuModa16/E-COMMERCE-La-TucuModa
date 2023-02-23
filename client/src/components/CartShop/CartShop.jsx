@@ -4,6 +4,7 @@ import Navbar from "../NavBar/Navbar";
 import Card_ from "../Card/Card";
 import axios from "axios";
 import { Button } from "react-bootstrap";
+import { API_URL } from "../../actions";
 
 export default function CartShop() {
   const cart = useSelector((state) => state.cart);
@@ -34,7 +35,7 @@ export default function CartShop() {
     const data = {
       unit_price: total,
     };
-    const res = await axios.post("http://localhost:3001/mercadopago", data);
+    const res = await axios.post(`${API_URL}/mercadopago`, data);
     console.log(res);
     if (res.status === 200) {
       window.open(res.data, "_blank");
