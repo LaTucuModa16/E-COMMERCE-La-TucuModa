@@ -1,4 +1,4 @@
-# Individual Project (Henry) - Api-Food
+# Group Project (Henry) - Ecommerce
 Dar click sobre la imagen para ver el video.
 
 ## Objetivos Realizados en este Proyecto
